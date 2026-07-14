@@ -20,7 +20,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const { data: files } = await github.paginate(
+            const files = await github.paginate(
               github.rest.pulls.listFiles,
               {
                 owner: context.repo.owner,
