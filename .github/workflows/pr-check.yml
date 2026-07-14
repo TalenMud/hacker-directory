@@ -1,229 +1,229 @@
-name: Validate contributor PRs
+# name: Validate contributor PRs
 
-on:
-  pull_request_target:
-    types: [opened, synchronize, reopened]
+# on:
+#   pull_request_target:
+#     types: [opened, synchronize, reopened]
 
-permissions:
-  contents: read
-  pull-requests: write
+# permissions:
+#   contents: read
+#   pull-requests: write
 
-jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout base repo (for scripts)
-        uses: actions/checkout@v4
+# jobs:
+#   validate:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout base repo (for scripts)
+#         uses: actions/checkout@v4
 
-      - name: Get changed files
-        id: changed
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const { data: files } = await github.paginate(
-              github.rest.pulls.listFiles,
-              {
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                pull_number: context.payload.pull_request.number,
-              }
-            );
-            const paths = files.map((f) => f.filename);
-            core.setOutput("paths", JSON.stringify(paths));
-            return paths;
+#       - name: Get changed files
+#         id: changed
+#         uses: actions/github-script@v7
+#         with:
+#           script: |
+#             const files = await github.paginate(
+#               github.rest.pulls.listFiles,
+#               {
+#                 owner: context.repo.owner,
+#                 repo: context.repo.repo,
+#                 pull_number: context.payload.pull_request.number,
+#               }
+#             );
+#             const paths = files.map((f) => f.filename);
+#             core.setOutput("paths", JSON.stringify(paths));
+#             return paths;
 
-      - name: Validate card.json files
-        id: validate
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require("fs");
-            const paths = JSON.parse('${{ steps.changed.outputs.paths }}');
-            const cardFiles = paths.filter((p) => /^contributors\/[^/]+\/card\.json$/.test(p));
+#       - name: Validate card.json files
+#         id: validate
+#         uses: actions/github-script@v7
+#         with:
+#           script: |
+#             const fs = require("fs");
+#             const paths = JSON.parse('${{ steps.changed.outputs.paths }}');
+#             const cardFiles = paths.filter((p) => /^contributors\/[^/]+\/card\.json$/.test(p));
 
-            const errors = [];
-            const warnings = [];
-            const REQUIRED_FIELDS = ["name", "github", "bio", "tags"];
+#             const errors = [];
+#             const warnings = [];
+#             const REQUIRED_FIELDS = ["name", "github", "bio", "tags"];
 
-            for (const file of cardFiles) {
-              let raw;
-              try {
-                raw = fs.readFileSync(file, "utf8");
-              } catch (e) {
-                errors.push(`Could not read \`${file}\` — did you delete it?`);
-                continue;
-              }
+#             for (const file of cardFiles) {
+#               let raw;
+#               try {
+#                 raw = fs.readFileSync(file, "utf8");
+#               } catch (e) {
+#                 errors.push(`Could not read \`${file}\` — did you delete it?`);
+#                 continue;
+#               }
 
-              let json;
-              try {
-                json = JSON.parse(raw);
-              } catch (e) {
-                errors.push(`\`${file}\` is not valid JSON: ${e.message}`);
-                continue;
-              }
+#               let json;
+#               try {
+#                 json = JSON.parse(raw);
+#               } catch (e) {
+#                 errors.push(`\`${file}\` is not valid JSON: ${e.message}`);
+#                 continue;
+#               }
 
-              for (const field of REQUIRED_FIELDS) {
-                if (!(field in json) || json[field] === "" || json[field] == null) {
-                  errors.push(`\`${file}\` is missing the required field \`"${field}"\`.`);
-                }
-              }
+#               for (const field of REQUIRED_FIELDS) {
+#                 if (!(field in json) || json[field] === "" || json[field] == null) {
+#                   errors.push(`\`${file}\` is missing the required field \`"${field}"\`.`);
+#                 }
+#               }
 
-              if ("tags" in json && !Array.isArray(json.tags)) {
-                errors.push(`\`${file}\`: \`"tags"\` must be an array, e.g. \`["Python", "React"]\`.`);
-              }
+#               if ("tags" in json && !Array.isArray(json.tags)) {
+#                 errors.push(`\`${file}\`: \`"tags"\` must be an array, e.g. \`["Python", "React"]\`.`);
+#               }
 
-              const folderUsername = file.split("/")[1];
-              if (json.github && json.github.toLowerCase() !== folderUsername.toLowerCase()) {
-                warnings.push(
-                  `\`${file}\`: the \`"github"\` field ("${json.github}") doesn't match the folder name ("${folderUsername}").`
-                );
-              }
-            }
+#               const folderUsername = file.split("/")[1];
+#               if (json.github && json.github.toLowerCase() !== folderUsername.toLowerCase()) {
+#                 warnings.push(
+#                   `\`${file}\`: the \`"github"\` field ("${json.github}") doesn't match the folder name ("${folderUsername}").`
+#                 );
+#               }
+#             }
 
-            core.setOutput("errorCount", errors.length.toString());
-            core.setOutput("errors", JSON.stringify(errors));
-            core.setOutput("warnings", JSON.stringify(warnings));
-            return { errors, warnings };
+#             core.setOutput("errorCount", errors.length.toString());
+#             core.setOutput("errors", JSON.stringify(errors));
+#             core.setOutput("warnings", JSON.stringify(warnings));
+#             return { errors, warnings };
 
-      - name: Check PR scope (own folder only?)
-        id: scope
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const paths = JSON.parse('${{ steps.changed.outputs.paths }}');
-            const author = context.payload.pull_request.user.login.toLowerCase();
+#       - name: Check PR scope (own folder only?)
+#         id: scope
+#         uses: actions/github-script@v7
+#         with:
+#           script: |
+#             const paths = JSON.parse('${{ steps.changed.outputs.paths }}');
+#             const author = context.payload.pull_request.user.login.toLowerCase();
 
-            const allowed = paths.every((p) => {
-              if (p === "contributors/manifest.json") return true;
-              const match = p.match(/^contributors\/([^/]+)\//);
-              return match && match[1].toLowerCase() === author;
-            });
+#             const allowed = paths.every((p) => {
+#               if (p === "contributors/manifest.json") return true;
+#               const match = p.match(/^contributors\/([^/]+)\//);
+#               return match && match[1].toLowerCase() === author;
+#             });
 
-            core.setOutput("selfScoped", allowed.toString());
-            return allowed;
+#             core.setOutput("selfScoped", allowed.toString());
+#             return allowed;
 
-      - name: Content & image safety check
-        id: moderate
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require("fs");
-            const paths = JSON.parse('${{ steps.changed.outputs.paths }}');
-            const cardFiles = paths.filter((p) => /^contributors\/[^/]+\/card\.json$/.test(p));
-            const htmlFiles = paths.filter((p) => /^contributors\/[^/]+\/.*\.html$/.test(p));
-            const cssFiles = paths.filter((p) => /^contributors\/[^/]+\/.*\.css$/.test(p));
-            const imageExtPattern = /\.(png|jpe?g|gif|webp|svg|bmp|avif)$/i;
-            const newImageFiles = paths.filter((p) => /^contributors\//.test(p) && imageExtPattern.test(p));
+#       - name: Content & image safety check
+#         id: moderate
+#         uses: actions/github-script@v7
+#         with:
+#           script: |
+#             const fs = require("fs");
+#             const paths = JSON.parse('${{ steps.changed.outputs.paths }}');
+#             const cardFiles = paths.filter((p) => /^contributors\/[^/]+\/card\.json$/.test(p));
+#             const htmlFiles = paths.filter((p) => /^contributors\/[^/]+\/.*\.html$/.test(p));
+#             const cssFiles = paths.filter((p) => /^contributors\/[^/]+\/.*\.css$/.test(p));
+#             const imageExtPattern = /\.(png|jpe?g|gif|webp|svg|bmp|avif)$/i;
+#             const newImageFiles = paths.filter((p) => /^contributors\//.test(p) && imageExtPattern.test(p));
 
-            const { words } = JSON.parse(fs.readFileSync(".github/scripts/blocklist.json", "utf8"));
-            const flags = [];
+#             const { words } = JSON.parse(fs.readFileSync(".github/scripts/blocklist.json", "utf8"));
+#             const flags = [];
 
-            function scanText(label, text) {
-              if (!text) return;
-              const lower = String(text).toLowerCase();
-              for (const word of words) {
-                if (lower.includes(word)) {
-                  flags.push(`Found a flagged word in ${label}.`);
-                  return;
-                }
-              }
-            }
+#             function scanText(label, text) {
+#               if (!text) return;
+#               const lower = String(text).toLowerCase();
+#               for (const word of words) {
+#                 if (lower.includes(word)) {
+#                   flags.push(`Found a flagged word in ${label}.`);
+#                   return;
+#                 }
+#               }
+#             }
 
-            for (const file of cardFiles) {
-              let json;
-              try {
-                json = JSON.parse(fs.readFileSync(file, "utf8"));
-              } catch (e) {
-                continue; // already reported by the card.json validator
-              }
-              scanText(`\`${file}\` ("name")`, json.name);
-              scanText(`\`${file}\` ("role")`, json.role);
-              scanText(`\`${file}\` ("bio")`, json.bio);
-              scanText(`\`${file}\` ("university")`, json.university);
-              if (Array.isArray(json.tags)) {
-                for (const tag of json.tags) scanText(`\`${file}\` ("tags")`, tag);
-              }
-            }
+#             for (const file of cardFiles) {
+#               let json;
+#               try {
+#                 json = JSON.parse(fs.readFileSync(file, "utf8"));
+#               } catch (e) {
+#                 continue; // already reported by the card.json validator
+#               }
+#               scanText(`\`${file}\` ("name")`, json.name);
+#               scanText(`\`${file}\` ("role")`, json.role);
+#               scanText(`\`${file}\` ("bio")`, json.bio);
+#               scanText(`\`${file}\` ("university")`, json.university);
+#               if (Array.isArray(json.tags)) {
+#                 for (const tag of json.tags) scanText(`\`${file}\` ("tags")`, tag);
+#               }
+#             }
 
-            // Any embedded image that isn't the contributor's own GitHub avatar,
-            // or any new image file committed into the PR, is worth a manual
-            // look — there's no image moderation running in CI, so we just
-            // point it out rather than guessing.
-            const GITHUB_AVATAR_PATTERN = /^https:\/\/github\.com\/[^/]+\.png(\?.*)?$/i;
+#             // Any embedded image that isn't the contributor's own GitHub avatar,
+#             // or any new image file committed into the PR, is worth a manual
+#             // look — there's no image moderation running in CI, so we just
+#             // point it out rather than guessing.
+#             const GITHUB_AVATAR_PATTERN = /^https:\/\/github\.com\/[^/]+\.png(\?.*)?$/i;
 
-            for (const file of htmlFiles.concat(cssFiles)) {
-              let text;
-              try {
-                text = fs.readFileSync(file, "utf8");
-              } catch (e) {
-                continue;
-              }
-              const srcMatches = [...text.matchAll(/(?:src|href)\s*=\s*["']([^"']+)["']/gi)].map((m) => m[1]);
-              const bgMatches = [...text.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/gi)].map((m) => m[1]);
-              const allRefs = [...srcMatches, ...bgMatches].filter((ref) => imageExtPattern.test(ref));
+#             for (const file of htmlFiles.concat(cssFiles)) {
+#               let text;
+#               try {
+#                 text = fs.readFileSync(file, "utf8");
+#               } catch (e) {
+#                 continue;
+#               }
+#               const srcMatches = [...text.matchAll(/(?:src|href)\s*=\s*["']([^"']+)["']/gi)].map((m) => m[1]);
+#               const bgMatches = [...text.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/gi)].map((m) => m[1]);
+#               const allRefs = [...srcMatches, ...bgMatches].filter((ref) => imageExtPattern.test(ref));
 
-              for (const ref of allRefs) {
-                if (GITHUB_AVATAR_PATTERN.test(ref)) continue;
-                flags.push(`\`${file}\` references an image (\`${ref}\`) that isn't a GitHub avatar URL.`);
-              }
-            }
+#               for (const ref of allRefs) {
+#                 if (GITHUB_AVATAR_PATTERN.test(ref)) continue;
+#                 flags.push(`\`${file}\` references an image (\`${ref}\`) that isn't a GitHub avatar URL.`);
+#               }
+#             }
 
-            for (const img of newImageFiles) {
-              flags.push(`New image file \`${img}\` was added.`);
-            }
+#             for (const img of newImageFiles) {
+#               flags.push(`New image file \`${img}\` was added.`);
+#             }
 
-            core.setOutput("flagCount", flags.length.toString());
-            core.setOutput("flags", JSON.stringify(flags));
-            return flags;
+#             core.setOutput("flagCount", flags.length.toString());
+#             core.setOutput("flags", JSON.stringify(flags));
+#             return flags;
 
-      - name: Post summary comment
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const errors = JSON.parse('${{ steps.validate.outputs.errors }}');
-            const warnings = JSON.parse('${{ steps.validate.outputs.warnings }}');
-            const flags = JSON.parse('${{ steps.moderate.outputs.flags }}');
-            const selfScoped = '${{ steps.scope.outputs.selfScoped }}' === 'true';
+#       - name: Post summary comment
+#         uses: actions/github-script@v7
+#         with:
+#           script: |
+#             const errors = JSON.parse('${{ steps.validate.outputs.errors }}');
+#             const warnings = JSON.parse('${{ steps.validate.outputs.warnings }}');
+#             const flags = JSON.parse('${{ steps.moderate.outputs.flags }}');
+#             const selfScoped = '${{ steps.scope.outputs.selfScoped }}' === 'true';
 
-            const lines = ["### 🔍 Automated PR check\n"];
+#             const lines = ["### 🔍 Automated PR check\n"];
 
-            if (errors.length > 0) {
-              lines.push("**❌ card.json problems (please fix):**");
-              lines.push(...errors.map((e) => `- ${e}`));
-              lines.push("");
-            } else {
-              lines.push("✅ card.json looks valid.\n");
-            }
+#             if (errors.length > 0) {
+#               lines.push("**❌ card.json problems (please fix):**");
+#               lines.push(...errors.map((e) => `- ${e}`));
+#               lines.push("");
+#             } else {
+#               lines.push("✅ card.json looks valid.\n");
+#             }
 
-            if (!selfScoped) {
-              lines.push("**📁 Scope:** this PR touches files outside `contributors/<your-username>/` — worth a closer look.\n");
-            } else {
-              lines.push("✅ Only touches the author's own contributor folder.\n");
-            }
+#             if (!selfScoped) {
+#               lines.push("**📁 Scope:** this PR touches files outside `contributors/<your-username>/` — worth a closer look.\n");
+#             } else {
+#               lines.push("✅ Only touches the author's own contributor folder.\n");
+#             }
 
-            if (flags.length > 0) {
-              lines.push("**🛡️ Content/image flags (not necessarily a problem, just worth a look):**");
-              lines.push(...flags.map((f) => `- ${f}`));
-              lines.push("");
-            }
+#             if (flags.length > 0) {
+#               lines.push("**🛡️ Content/image flags (not necessarily a problem, just worth a look):**");
+#               lines.push(...flags.map((f) => `- ${f}`));
+#               lines.push("");
+#             }
 
-            if (warnings.length > 0) {
-              lines.push("**⚠️ Heads up:**");
-              lines.push(...warnings.map((w) => `- ${w}`));
-              lines.push("");
-            }
+#             if (warnings.length > 0) {
+#               lines.push("**⚠️ Heads up:**");
+#               lines.push(...warnings.map((w) => `- ${w}`));
+#               lines.push("");
+#             }
 
-            lines.push(
-              "_This repo reviews and merges every PR by hand — no auto-merge here. A maintainer will take a look soon!_"
-            );
+#             lines.push(
+#               "_This repo reviews and merges every PR by hand — no auto-merge here. A maintainer will take a look soon!_"
+#             );
 
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.payload.pull_request.number,
-              body: lines.join("\n"),
-            });
+#             await github.rest.issues.createComment({
+#               owner: context.repo.owner,
+#               repo: context.repo.repo,
+#               issue_number: context.payload.pull_request.number,
+#               body: lines.join("\n"),
+#             });
 
-            if (errors.length > 0) {
-              core.setFailed("card.json validation failed");
-            }
+#             if (errors.length > 0) {
+#               core.setFailed("card.json validation failed");
+#             }
