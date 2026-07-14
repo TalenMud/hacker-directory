@@ -1,0 +1,11 @@
+{
+	"name": "Tyrone Serdan",
+	"role": "CS Student",
+	"university": "FSUU",
+	"github": "tyrone-serdan",
+	"bio": "3rd year cs student, currently doing webdev & game dev.",
+	"tags": ["Python", "JavaScript", "TypeScript", "Godot", "Web"],
+	"links": {
+		"website": "https://imtyr.one"
+	}
+}
