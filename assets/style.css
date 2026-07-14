@@ -24,7 +24,7 @@
 /* ---------- Light theme (default) — pastel pink notebook paper ---------- */
 :root,
 [data-theme="light"] {
-  --bg: #f7ecdf;
+  --bg: #becde8;
   --bg-raised: #fffaf3;
   --bg-card: #fffaf3;
   --bg-card-hover: #fff1e6;
@@ -255,7 +255,7 @@ a {
 }
 
 [data-theme="light"] .hero .highlight {
-  background: linear-gradient(100deg, #ff8fc7, #b98cff 50%, #ff9d6c 90%);
+  background: linear-gradient(100deg, #5495ea, #5cb8ee 50%, #14a2d2 90%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -320,8 +320,8 @@ a {
 }
 
 [data-theme="light"] .btn-primary {
-  background: linear-gradient(100deg, #ff9dc9, #ffc39a);
-  color: #3a1c2b;
+  background: linear-gradient(100deg, #9ddeff, #0bbed2);
+  color: #5081e3;
 }
 
 [data-theme="light"] .btn-primary:hover {
