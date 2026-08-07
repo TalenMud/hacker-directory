@@ -1,0 +1,11 @@
+{
+  "name": "Yany Gonzalez Yepez",
+  "role": "Software Engineer | Mobile & Web Dev | AI Integration",
+  "university": "Fundación Universitaria Compensar",
+  "github": "your-github-username",
+  "bio": "I build mobile & web apps and integrate AI into real products. Flutter, React, GCP & LLMs.",
+  "tags": ["Flutter", "React", "Python", "TypeScript", "AI/LLMs", "GCP", "Firebase"],
+  "links": {
+    "website": "https://yany-portafolio.vercel.app"
+  }
+}

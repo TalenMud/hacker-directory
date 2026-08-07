@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hacker directory</title>
+  <meta name="description" content="A community-built directory of hackers, builders, and students — one card, one page per person." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👾</text></svg>" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="assets/theme.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-brand" href="index.html">
+      <span class="dot"></span>
+      hacker directory
+    </a>
+    <div class="nav-links">
+      <a href="CONTRIBUTING.md">add your card</a>
+      <a href="https://github.com/TalenMud/hacker-directory" target="_blank" rel="noopener">github</a>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <header class="hero wrap">
+    <h1>Hackers.<br /><span class="highlight">Not spectators.</span></h1>
+    <p>
+      A directory built by the people in it. Every card below is a pull request —
+      fork the repo, claim your page, and ship something weird with it.
+    </p>
+    <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+      <a class="btn btn-primary" href="CONTRIBUTING.md">Add your card →</a>
+      <a class="btn btn-outline" href="https://github.com/TalenMud/hacker-directory" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+    <div class="hero-stats" id="hero-stats">
+      <div><div class="num" id="stat-count">–</div><div class="label">Contributors</div></div>
+      <div><div class="num" id="stat-tags">–</div><div class="label">Tags</div></div>
+      <div><div class="num">∞</div><div class="label">Vibes</div></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="controls">
+      <input class="search-input" id="search" type="text" placeholder="Search by name, tag, or bio…" autocomplete="off" />
+    </div>
+    <div class="controls" id="tag-filters"></div>
+
+    <div class="grid" id="grid">
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
+    </div>
+    <div class="empty-state" id="empty-state" style="display:none;">
+      No hackers match that search. <a href="CONTRIBUTING.md">Be the first?</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Built by contributors, for contributors. <a href="CONTRIBUTING.md">Join the directory</a> ·
+    <a href="https://github.com/TalenMud/hacker-directory" target="_blank" rel="noopener">Source on GitHub</a>
+  </footer>
+
+  <script src="assets/directory.js"></script>
+  <script>HDTheme.init();</script>
+</body>
+</html>

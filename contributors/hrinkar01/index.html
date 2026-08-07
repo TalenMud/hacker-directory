@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hrinkar Bothra — build log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#05070c;
+    --panel:#0c1017;
+    --panel-2:#090c12;
+    --line:#1b2433;
+    --phosphor:#7fc8ff;
+    --phosphor-dim:#4a8bc2;
+    --amber:#ffb347;
+    --copper:#3f6fa8;
+    --text:#dbe4ee;
+    --muted:#6b7a8f;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(127,200,255,0.06), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(255,179,71,0.04), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.55;
+  }
+  ::selection{background:var(--phosphor); color:#0a0f0c;}
+  a{color:inherit;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+
+  /* faint circuit-trace background layer */
+  .traces{
+    position:fixed; inset:0; z-index:-1; opacity:0.35;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:42px 42px;
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 75%);
+            mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 75%);
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:10;
+    background:rgba(10,15,12,0.85);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:920px; margin:0 auto;
+  }
+  .logo{
+    font-family:var(--mono); font-weight:700; font-size:15px; letter-spacing:0.02em;
+    color:var(--phosphor);
+  }
+  .logo span{color:var(--muted);}
+  .pins{display:flex; gap:22px; list-style:none; margin:0; padding:0; font-family:var(--mono); font-size:12.5px;}
+  .pins a{
+    text-decoration:none; color:var(--muted); position:relative; padding-bottom:3px;
+    transition:color .2s ease;
+  }
+  .pins a:hover, .pins a:focus-visible{color:var(--phosphor);}
+  .pins li::before{content:"·"; color:var(--copper); margin-right:6px;}
+  @media (max-width:640px){ .pins{display:none;} }
+
+  /* ---------- hero / device screen ---------- */
+  .hero{padding:72px 0 56px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; color:var(--muted);
+    display:flex; align-items:center; gap:8px; margin-bottom:18px;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--phosphor); box-shadow:0 0 8px var(--phosphor); animation:blink 1.6s infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.25;}}
+  @media (prefers-reduced-motion:reduce){ .dot{animation:none;} }
+
+  h1{
+    font-family:var(--mono); font-weight:700; font-size:clamp(30px,5vw,46px);
+    margin:0 0 12px; letter-spacing:-0.01em; color:#fff;
+  }
+  h1 .accent{color:var(--phosphor);}
+  .tagline{max-width:56ch; color:var(--text); font-size:16.5px; margin:0 0 34px;}
+  .tagline b{color:var(--amber); font-weight:600;}
+
+  /* ---------- sections ---------- */
+  section{padding:56px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .head-row{
+    display:flex; align-items:baseline; gap:14px; margin-bottom:30px;
+  }
+  .idx{font-family:var(--mono); color:var(--copper); font-size:13px;}
+  h2{
+    font-family:var(--mono); font-size:13px; text-transform:uppercase; letter-spacing:0.14em;
+    color:var(--muted); margin:0;
+  }
+  .rule{flex:1; height:1px; background:var(--line);}
+
+  /* about */
+  .about p{max-width:66ch; color:var(--text); font-size:15.5px;}
+  .about p + p{margin-top:14px;}
+
+  /* projects — chip cards */
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:700px){ .grid{grid-template-columns:1fr;} }
+
+  .chip{
+    position:relative;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:20px 20px 18px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .chip:hover{border-color:var(--phosphor-dim); transform:translateY(-2px);}
+  /* notch like a chip pin-1 marker */
+  .chip::before{
+    content:""; position:absolute; top:14px; left:14px;
+    width:7px; height:7px; border-radius:50%;
+    background:var(--copper);
+  }
+  .chip-head{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; padding-left:20px;}
+  .chip-name{font-family:var(--mono); font-weight:600; font-size:15.5px; color:#fff;}
+  .chip-status{font-family:var(--mono); font-size:10.5px; color:var(--phosphor-dim); border:1px solid var(--line); padding:2px 7px; border-radius:20px; white-space:nowrap;}
+  .chip-desc{font-size:14px; color:var(--muted); margin:0 0 12px; padding-left:20px;}
+  .chip-tags{display:flex; flex-wrap:wrap; gap:6px; padding-left:20px;}
+  .chip-tags span{font-family:var(--mono); font-size:10.5px; color:var(--muted); background:var(--panel-2); border:1px solid var(--line); padding:2px 6px; border-radius:3px;}
+
+  /* contact */
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:14px; margin-top:8px;
+  }
+  .btn{
+    font-family:var(--mono); font-size:13px; text-decoration:none;
+    padding:11px 18px; border-radius:4px; border:1px solid var(--line);
+    color:var(--text); transition:all .2s ease; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn.primary{background:var(--phosphor); color:#08120c; border-color:var(--phosphor); font-weight:600;}
+  .btn.primary:hover{box-shadow:0 0 22px rgba(127,200,255,0.35);}
+  .btn:not(.primary):hover{border-color:var(--phosphor-dim); color:var(--phosphor);}
+
+  footer{
+    padding:26px 0 44px; text-align:center; font-family:var(--mono); font-size:11.5px; color:var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="traces"></div>
+
+<header>
+  <nav>
+    <div class="logo">hrinkar<span>@builds</span></div>
+    <ul class="pins">
+      <li><a href="#about">about</a></li>
+      <li><a href="#projects">projects</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow"><span class="dot"></span> STATUS: BUILDING</div>
+    <h1>Hrinkar <span class="accent">Bothra</span></h1>
+  </section>
+
+  <section id="about">
+    <div class="head-row"><span class="idx"></span><h2>About Me</h2><div class="rule"></div></div>
+    <div class="about">
+      <p>HI, I am national level government organised hackathon winner: Smart India Hackthon'2025. I'm into Machine Learning, Hardware Embedded Hacking, IOT, Reverse Engineer and Open Source.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="head-row"><span class="idx"></span><h2>Some Projects</h2><div class="rule"></div></div>
+    <div class="grid">
+
+      <div class="chip">
+        <div class="chip-head">
+          <span class="chip-name">Memoraid</span>
+          <span class="chip-status">active</span>
+        </div>
+        <p class="chip-desc">Smart memory device for dementia patients.</p>
+        <div class="chip-tags"><span>ESP32</span><span>assistive tech</span></div>
+      </div>
+
+      <div class="chip">
+        <div class="chip-head">
+          <span class="chip-name">ResQ</span>
+          <span class="chip-status">SIH 2025 winner</span>
+        </div>
+        <p class="chip-desc">Disaster management system — winner, Smart India Hackathon 2025.</p>
+        <div class="chip-tags"><span>disaster management</span><span>SIH 2025</span></div>
+      </div>
+
+      <div class="chip">
+        <div class="chip-head">
+          <span class="chip-name">Cheat Code</span>
+          <span class="chip-status">active</span>
+        </div>
+        <p class="chip-desc">Mini cheating device based on ESP32.</p>
+        <div class="chip-tags"><span>ESP32</span><span>OLED</span></div>
+      </div>
+
+    </div>
+  </section>
+
+
+</main>
+
+<footer>
+  built &amp; flashed by hrinkar bothra · last compiled 2026
+</footer>
+
+</body>
+</html>
