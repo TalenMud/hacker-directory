@@ -32,12 +32,13 @@
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/saraibrahim/Documents/GitHub/hacker-directory/contributors/s4ra-ibrahim",
+    "last_opened_file_path": "/Users/saraibrahim/Documents/GitHub/hacker-directory/contributors",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/contributors" />
       <recent name="$PROJECT_DIR$/contributors/s4ra-ibrahim" />
     </key>
   </component>
