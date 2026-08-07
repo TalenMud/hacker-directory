@@ -1,0 +1,11 @@
+{
+  "name": "George Njunge",
+  "role": "IT Student, ML lover, HPC enthusiast",
+  "university": "Dedan Kimathi University of Technology",
+  "github": "GeoNjunge",
+  "bio": "I love Basketball(The 2K video game I mean)",
+  "tags": ["Python", "Typescript", "Machine Learning"],
+  "links": {
+    "website": "https://george-njunge-blog.vercel.app/"
+  }
+}

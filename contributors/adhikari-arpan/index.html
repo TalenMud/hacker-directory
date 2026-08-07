@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arpan Adhikari — hacker directory</title>
+  <meta name="description" content="Arpan Adhikari's personal page — Computer Engineering student who likes creating fun in everything, including a snake game hiding on this page." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>" />
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../assets/theme.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-brand" href="../../index.html">
+      <span class="dot"></span>
+      hacker directory
+    </a>
+    <div class="nav-links">
+      <a href="../../index.html">← back to directory</a>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <div class="profile-hero">
+      <img class="profile-avatar" src="https://github.com/adhikari-arpan.png?size=192" alt="Arpan Adhikari" onerror="this.style.display='none'" />
+      <div>
+        <h1 class="profile-name">Arpan Adhikari</h1>
+        <p class="profile-meta">Computer Engineering Student · Pokhara University · @adhikari-arpan</p>
+        <p class="profile-bio">
+          I like creating fun in all things I do — including this page. Instead
+          of another boring bio section, I built a snake game below. Beat my
+          high score, I dare you.
+        </p>
+        <div class="pills" style="margin-top:0.8rem;">
+          <span class="pill" style="--pill-color:#3ef2a1">Python</span>
+          <span class="pill" style="--pill-color:#4d8bff">React</span>
+          <span class="pill" style="--pill-color:#ff5cb3">Fun-driven dev</span>
+        </div>
+        <div class="links-row">
+          <a class="btn btn-outline" href="https://www.arpanadhikari7.com.np/" target="_blank" rel="noopener">Website ↗</a>
+          <a class="btn btn-outline" href="https://github.com/adhikari-arpan" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="block">
+      <h2>🐍 Byte Snake</h2>
+      <div class="game-panel">
+        <p class="caption">
+          Classic snake, hacker-directory flavour. Eat 🐍 to grow and score,
+          dodge or eat 🐛 at your own risk — bugs shrink your snake and cost
+          you points, just like in real software. Arrow keys or WASD to move,
+          space to pause. High score is saved locally in your browser.
+        </p>
+        <div class="game-canvas-wrap">
+          <canvas id="snake-canvas" width="400" height="400"></canvas>
+          <div id="snake-overlay" class="snake-overlay">
+            <div class="snake-overlay-inner">
+              <p id="snake-overlay-title">Byte Snake</p>
+              <p id="snake-overlay-sub">Press any arrow key, WASD, or the button below to start.</p>
+              <button id="snake-start-btn">start game</button>
+            </div>
+          </div>
+        </div>
+        <div class="viz-controls">
+          <button id="snake-pause-btn">pause</button>
+          <button id="snake-restart-btn">restart</button>
+          <button id="snake-speed-btn">speed: normal</button>
+          <span class="stat-chip">score: <span id="snake-score">0</span></span>
+          <span class="stat-chip">high score: <span id="snake-highscore">0</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Currently building</h2>
+      <ul class="project-list">
+        <li>
+          <strong>arpanadhikari7.com.np</strong>
+          <span>My personal site and playground for whatever I'm learning that week.</span>
+        </li>
+        <li>
+          <strong>This page</strong>
+          <span>A snake game because a wall of text felt like a missed opportunity to have fun.</span>
+        </li>
+        <li>
+          <strong>Python + React projects</strong>
+          <span>Mixing a Python backend brain with a React front end, one small project at a time.</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    This is my page in the <a href="../../index.html">hacker directory</a> — make your own in a PR.
+  </footer>
+
+  <script src="game.js"></script>
+  <script>HDTheme.init();</script>
+</body>
+</html>

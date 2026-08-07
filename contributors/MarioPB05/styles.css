@@ -1,0 +1,96 @@
+h1 {
+  font-family: var(--font-goofy);
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  margin: 0 0 2rem;
+}
+
+.intro {
+  max-width: 620px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.intro strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.pills {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0;
+}
+
+.links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.projects {
+  margin-top: 3.5rem;
+}
+
+.projects h2 {
+  font-family: var(--font-goofy);
+  font-size: 1.45rem;
+  margin-bottom: 1.2rem;
+}
+
+.projects p {
+  max-width: 620px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.projects > p a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.projects > p a:hover {
+  text-decoration: underline;
+}
+
+.project {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--project-accent, var(--accent-blue));
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1rem;
+  max-width: 680px;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.project:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  border-left-color: var(--project-accent, var(--accent-blue));
+  transform: translateY(-2px);
+}
+
+.project h3 {
+  font-family: var(--font-goofy);
+  font-size: 1.15rem;
+  margin: 0 0 0.6rem;
+}
+
+.project p {
+  margin: 0 0 0.8rem;
+  font-size: 0.94rem;
+}
+
+.project .pills {
+  margin: 0.9rem 0 0;
+  gap: 0.4rem;
+}

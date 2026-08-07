@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mario Perdiguero — hacker directory</title>
+  <meta name="description" content="Mario Perdiguero Barrera, full stack developer from Seville. Angular, Ionic, PHP and a school app used by 1,400 people a day." />
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../assets/theme.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-brand" href="../../index.html">
+      <span class="dot"></span>
+      hacker directory
+    </a>
+    <div class="nav-links">
+      <a href="../../index.html">← back to directory</a>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="wrap" style="padding-top: 3rem; padding-bottom: 4rem;">
+    <h1>Mario Perdiguero Barrera</h1>
+    <p class="tagline">Full Stack Developer · SAFA, Seville · @MarioPB05</p>
+
+    <p class="intro">
+      Hey! I'm Mario, a full stack developer from Olivares, a small town just
+      outside Seville in the south of Spain. I got into this the way a lot of
+      people do: messing about with online tutorials as a kid, breaking things,
+      and eventually realising I'd rather be doing that than anything else. So I
+      went and studied it properly.
+    </p>
+
+    <p class="intro">
+      These days I build web and mobile apps for SAFA, a network of schools
+      across Andalusia. Most of my time goes into <strong>Itacapp</strong>, which
+      somewhere between 1,300 and 1,500 students, parents and teachers open every
+      single day. Shipping to real people who will absolutely tell you when
+      something is broken has taught me more than any tutorial ever did.
+    </p>
+
+    <div class="pills">
+      <span class="pill" style="--pill-color:#4d8bff">Angular</span>
+      <span class="pill" style="--pill-color:#33d9c1">TypeScript</span>
+      <span class="pill" style="--pill-color:#a56dff">Ionic</span>
+      <span class="pill" style="--pill-color:#ff8c37">PHP</span>
+      <span class="pill" style="--pill-color:#ffd23f">Firebase</span>
+      <span class="pill" style="--pill-color:#3ef2a1">MySQL</span>
+      <span class="pill" style="--pill-color:#ff5cb3">Symfony</span>
+    </div>
+
+    <div class="links">
+      <a class="btn btn-outline" href="https://github.com/MarioPB05" target="_blank" rel="noopener">
+        GitHub ↗
+      </a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/mario-perdiguero-barrera/" target="_blank" rel="noopener">
+        LinkedIn ↗
+      </a>
+    </div>
+
+    <section class="projects">
+      <h2>Things I've built</h2>
+
+      <article class="project" style="--project-accent: var(--accent-blue)">
+        <h3>Itacapp</h3>
+        <p>
+          A cross-platform app for the SAFA school network: grades, attendance,
+          weekly schedules, notifications, and parents managing several kids from
+          one account. Ionic + Angular on the front, a custom PHP API on the
+          back, Firebase for auth and push. I joined during my internship and now
+          I'm the one keeping it alive and growing it.
+        </p>
+        <p>
+          The bits I'm proudest of: the whole authentication flow, a personalised
+          push notification system, and a real-time chat between parents and
+          tutors that people actually use. The teacher module went out recently
+          with timetables, duties and academic follow-up.
+        </p>
+        <div class="pills">
+          <span class="pill">Ionic</span>
+          <span class="pill">Angular</span>
+          <span class="pill">PHP</span>
+          <span class="pill">Firebase</span>
+        </div>
+      </article>
+
+      <article class="project" style="--project-accent: var(--accent-pink)">
+        <h3>Colette's Shop</h3>
+        <p>
+          A gamified online store inspired by Brawl Stars, built with Symfony.
+          You buy random boxes, unlock brawlers, earn gems towards discounts, set
+          your favourite brawler as your avatar, and leave reviews. There's an
+          admin dashboard behind it for boxes, orders and stats, plus music and
+          sound effects because it felt wrong without them. A school project I
+          had far too much fun with.
+        </p>
+        <div class="pills">
+          <span class="pill">Symfony</span>
+          <span class="pill">PHP</span>
+          <span class="pill">MySQL</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="projects">
+      <h2>Other bits</h2>
+      <p>
+        Spanish is my first language and I get by comfortably in English. I like
+        talking about ethical design, I've got a soft spot for well-structured
+        databases, and I'm always up for a chat about a project. Say hi on
+        <a href="https://www.linkedin.com/in/mario-perdiguero-barrera/" target="_blank" rel="noopener">LinkedIn</a>
+        if something here caught your eye.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    This is my page in the <a href="../../index.html">hacker directory</a> — make your own in a PR.
+  </footer>
+
+  <script>HDTheme.init();</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talen Mudaly — hacker directory</title>
+  <meta name="description" content="Talen Mudaly's personal page — CS & Maths student, MCMC samplers, open source." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>" />
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../assets/theme.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-brand" href="../../index.html">
+      <span class="dot"></span>
+      hacker directory
+    </a>
+    <div class="nav-links">
+      <a href="../../index.html">← back to directory</a>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <div class="profile-hero">
+      <img class="profile-avatar" src="https://github.com/TalenMud.png?size=192" alt="Talen Mudaly" onerror="this.style.display='none'" />
+      <div>
+        <h1 class="profile-name">Talen Mudaly</h1>
+        <p class="profile-meta">CS & Maths Student · University of Manchester · @TalenMud</p>
+        <p class="profile-bio">
+          Building MCMC samplers in CUDA, open source contributor, MLH coach.
+          Founder of UoM Open Source Society. I like distributions that are hard
+          to sample from and code that runs on GPUs it probably shouldn't.
+        </p>
+        <div class="pills" style="margin-top:0.8rem;">
+          <span class="pill" data-pill="python">Python</span>
+          <span class="pill" data-pill="cpp">C++</span>
+          <span class="pill" data-pill="cuda">CUDA</span>
+          <span class="pill" data-pill="react">React</span>
+          <span class="pill" data-pill="oss">Open Source</span>
+          <span class="pill" data-pill="bayes">Bayesian Stats</span>
+        </div>
+        <div class="links-row">
+          <a class="btn btn-outline" href="https://talenmud.github.io" target="_blank" rel="noopener">Website ↗</a>
+          <a class="btn btn-outline" href="https://github.com/TalenMud" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="block">
+      <h2>Metropolis&#8211;Hastings, live</h2>
+      <div class="viz-panel">
+        <p class="caption">
+          A little demo of what you can build on your own page. This is a real
+          Metropolis&#8211;Hastings sampler exploring a 2D mixture-of-Gaussians
+          target distribution — the walker proposes a random step, accepts it with
+          probability <code>min(1, p(x')/p(x))</code>, and rejects otherwise. Warmer
+          cells in the heatmap mean the chain has spent more time there, which is
+          exactly where the true density is highest.
+        </p>
+        <div id="mcmc-canvas-wrap"></div>
+        <div class="viz-controls">
+          <button id="mcmc-reset">restart chain</button>
+          <button id="mcmc-speed">speed: 1×</button>
+          <span class="stat-chip">steps: <span id="mcmc-steps">0</span></span>
+          <span class="stat-chip">accepted: <span id="mcmc-accepted">0</span></span>
+          <span class="stat-chip">acceptance rate: <span id="mcmc-rate">–</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Currently building</h2>
+      <ul class="project-list">
+        <li>
+          <strong>gpu-mcmc</strong>
+          <span>Parallel Metropolis-Hastings and HMC samplers written in raw CUDA, benchmarked against Stan.</span>
+        </li>
+        <li>
+          <strong>UoM Open Source Society</strong>
+          <span>Founded and run the university's first open source society — workshops, hack nights, first-PR onboarding.</span>
+        </li>
+        <li>
+          <strong>MLH Coach</strong>
+          <span>Coaching student hackathon organisers across the Major League Hacking network.</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    This is my page in the <a href="../../index.html">hacker directory</a> — make your own in a PR.
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <script src="mcmc.js"></script>
+  <script>HDTheme.init();</script>
+</body>
+</html>
