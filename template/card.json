@@ -1,0 +1,11 @@
+{
+  "name": "Your Name",
+  "role": "What you do — e.g. CS Student, Frontend Dev, Robotics Nerd",
+  "university": "Your school or company (optional)",
+  "github": "your-github-username",
+  "bio": "One or two sentences about what you build, what you're learning, or what you're into.",
+  "tags": ["Python", "JavaScript", "Your Tag Here"],
+  "links": {
+    "website": "https://your-site.example.com"
+  }
+}
