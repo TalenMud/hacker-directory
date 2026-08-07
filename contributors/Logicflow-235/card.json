@@ -1,0 +1,11 @@
+{
+  "name": "Linet Theuri",
+  "role": "Fullstack Developer",
+  "university": "Karatina University",
+  "github": "Logicflow-235",
+  "bio": "I have a money problem, so I built Track Pesa — a Kenyan-market finance tracker — and used it to teach myself backend dev (Node/Express, JWT, MongoDB).",
+  "tags": ["React", "TypeScript", "Node.js"],
+  "links": {
+    "website": "https://track-pesa.vercel.app/"
+  }
+}

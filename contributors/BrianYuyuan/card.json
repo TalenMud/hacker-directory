@@ -1,0 +1,11 @@
+{
+  "name": "Brian Zhang",
+  "role": "ECE Student",
+  "university": "Rice University",
+  "github": "BrianYuyuan",
+  "bio": "A sophomore majoring in Electrical and Computer Engineering. Really love reading sci-fi, playing video games, and making terrariums.",
+  "tags": ["Python", "JavaScript", "C"],
+  "links": {
+    "github": "https://github.com/BrianYuyuan"
+  }
+}
