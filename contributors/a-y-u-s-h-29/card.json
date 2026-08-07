@@ -1,11 +1,14 @@
 {
   "name": "Ayush Sharma",
-  "role": "Full Stack Developer, Data Scientist - Open Source Contributor",
-  "university": "The University of Arizona",
-  "github": "somaathetechster",
-  "bio": "I like code, building things and playing chess",
-  "tags": ["Python", "JavaScript", "AI/ML", "React", "Node.js"],
-  "links": {
-    "website": "ayush-sharma-portfolio.netlify.app"
+  "github": "A-y-u-s-h-29",
+  "bio": "Passionate Full Stack Developer building modern web applications with React, Next.js, Node.js, and AI.",
+  "tags": [
+    "Python",
+    "JavaScript",
+    "React",
+    "Next.js"
+  ],
+  "socials": {
+    "website": "https://ayush-sharma-portfolio.netlify.app"
   }
 }
