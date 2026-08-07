@@ -1,0 +1,96 @@
+.cosmason-profile {
+  color: var(--text-primary);
+}
+
+.cosmason-profile .profile-kicker {
+  margin: 0 0 0.65rem;
+  color: #5eead4;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.cosmason-profile .hero-title {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-goofy);
+  font-size: 2.3rem;
+  color: #f2c14e;
+}
+
+.cosmason-profile .profile-meta {
+  margin: 0 0 1.2rem;
+  color: var(--text-secondary);
+}
+
+.cosmason-profile .bio {
+  max-width: 720px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.cosmason-profile .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1.4rem 0 0;
+}
+
+.cosmason-profile .content-block {
+  margin-top: 2.4rem;
+}
+
+.cosmason-profile .content-block h2 {
+  margin-bottom: 1rem;
+  font-family: var(--font-goofy);
+  font-size: 1.35rem;
+  color: #5eead4;
+}
+
+.cosmason-profile .project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.cosmason-profile .project-card {
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(94, 234, 212, 0.25);
+  border-radius: 14px;
+  background: rgba(7, 19, 38, 0.82);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.cosmason-profile .project-card:hover {
+  border-color: rgba(242, 193, 78, 0.65);
+  transform: translateY(-2px);
+}
+
+.cosmason-profile .project-card h3 {
+  margin: 0 0 0.35rem;
+  color: #f2c14e;
+}
+
+.cosmason-profile .project-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cosmason-profile .link-list {
+  display: grid;
+  gap: 0.6rem;
+  padding-left: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.cosmason-profile .link-list a {
+  color: #5eead4;
+  text-decoration: none;
+}
+
+.cosmason-profile .link-list a:hover {
+  color: #f2c14e;
+}
+
