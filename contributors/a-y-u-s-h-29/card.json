@@ -1,0 +1,11 @@
+{
+  "name": "Ayush Sharma",
+  "role": "Full stack Developer",
+  "university": "Rd Engineering College",
+  "github": "https://github.com/A-y-u-s-h-29",
+  "bio": "Full-Stack Engineer (MERN) building AI-powered web applications and teaching web development on YouTube.",
+  "tags": ["Python", "JavaScript", "AI/ML"],
+  "links": {
+    "website": "ayush-sharma-portfolio.netlify.app"
+  }
+}
