@@ -22,6 +22,28 @@
 
   const PILL_COLORS = {};
 
+  const VOTES_KEY = "hd-votes";
+
+  function loadVotes() {
+    try {
+      return JSON.parse(localStorage.getItem(VOTES_KEY)) || {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function saveVotes(votes) {
+    try {
+      localStorage.setItem(VOTES_KEY, JSON.stringify(votes));
+    } catch (e) {
+      // best-effort persistence
+    }
+  }
+
+  function voteTotal(username, votes) {
+    return Number(votes[username] || 0);
+  }
+
   function isLightTheme() {
     return document.documentElement.getAttribute("data-theme") !== "dark";
   }
@@ -78,7 +100,7 @@
     return cards.filter(Boolean);
   }
 
-  function cardTemplate(person, index) {
+  function cardTemplate(person, index, votes) {
     const pairs = accentPairs();
     const [c1, c2] = pairs[index % pairs.length];
     const tags = Array.isArray(person.tags) ? person.tags : [];
@@ -87,6 +109,7 @@
       .join(" · ");
     const github = person.github ? `https://github.com/${person.github}` : null;
     const avatar = github ? `${github}.png?size=104` : null;
+    const votesFor = voteTotal(person.username, votes);
 
     return `
       <a class="card" href="contributors/${escapeHtml(person.username)}/index.html" style="--card-accent-1:${c1}; --card-accent-2:${c2}">
@@ -111,19 +134,25 @@
         </div>
         <div class="card-footer">
           <span>@${escapeHtml(person.username)}</span>
-          <span class="arrow">view profile →</span>
+          <div class="card-footer-actions">
+            <button class="vote-btn${votesFor > 0 ? " voted" : ""}" type="button" data-vote-name="${escapeHtml(person.username)}" aria-label="Upvote ${escapeHtml(person.name || person.username)}">
+              <span class="vote-symbol" aria-hidden="true">▲</span>
+              <span class="vote-count" data-vote-count="${escapeHtml(person.username)}">${votesFor}</span>
+            </button>
+            <span class="arrow">view profile →</span>
+          </div>
         </div>
       </a>
     `;
   }
 
-  function render(people, filterState) {
+  function render(people, filterState, votes) {
     const grid = document.getElementById("grid");
     const empty = document.getElementById("empty-state");
     const query = filterState.query.trim().toLowerCase();
     const activeTag = filterState.tag;
 
-    const filtered = people.filter((p) => {
+    let visible = people.filter((p) => {
       const matchesTag = !activeTag || (p.tags || []).includes(activeTag);
       if (!matchesTag) return false;
       if (!query) return true;
@@ -134,14 +163,21 @@
       return haystack.includes(query);
     });
 
-    if (filtered.length === 0) {
+    if (filterState.sort === "top") {
+      visible = visible
+        .map((p) => ({ p, v: voteTotal(p.username, votes) }))
+        .sort((a, b) => b.v - a.v)
+        .map((x) => x.p);
+    }
+
+    if (visible.length === 0) {
       grid.innerHTML = "";
       empty.style.display = "block";
       return;
     }
 
     empty.style.display = "none";
-    grid.innerHTML = filtered.map((p, i) => cardTemplate(p, i)).join("");
+    grid.innerHTML = visible.map((p, i) => cardTemplate(p, i, votes)).join("");
   }
 
   function buildTagFilters(people, filterState, onChange) {
@@ -181,7 +217,8 @@
 
   async function init() {
     const grid = document.getElementById("grid");
-    const filterState = { query: "", tag: null };
+    const filterState = { query: "", tag: null, sort: "new" };
+    let votes = loadVotes();
 
     let people = [];
     try {
@@ -197,8 +234,23 @@
     people.forEach((p) => (p.tags || []).forEach((t) => uniqueTags.add(t)));
     document.getElementById("stat-tags").textContent = uniqueTags.size;
 
-    const rerender = () => render(people, filterState);
+    const rerender = () => render(people, filterState, votes);
     buildTagFilters(people, filterState, rerender);
+    buildSortControl(filterState, rerender);
+
+    grid.addEventListener("click", (e) => {
+      const btn = e.target.closest(".vote-btn");
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+
+      const username = btn.getAttribute("data-vote-name");
+      const current = voteTotal(username, votes);
+      const next = current === 0 ? 1 : 0;
+      votes[username] = next;
+      saveVotes(votes);
+      rerender();
+    });
 
     const search = document.getElementById("search");
     search.addEventListener("input", () => {
@@ -210,6 +262,36 @@
     if (themeToggle) themeToggle.addEventListener("click", () => setTimeout(rerender, 0));
 
     rerender();
+  }
+
+  function buildSortControl(filterState, onChange) {
+    const container = document.getElementById("sort-controls");
+    if (!container) return;
+    container.innerHTML = "";
+
+    const label = document.createElement("label");
+    label.className = "filter-pill";
+    label.textContent = "Sort";
+    container.appendChild(label);
+
+    const options = [
+      { value: "new", text: "Newest" },
+      { value: "top", text: "Top upvotes" },
+    ];
+    options.forEach((opt) => {
+      const pill = document.createElement("button");
+      pill.type = "button";
+      pill.className = "filter-pill";
+      pill.textContent = opt.text;
+      if (filterState.sort === opt.value) pill.classList.add("active");
+      pill.addEventListener("click", () => {
+        filterState.sort = opt.value;
+        onChange();
+        [...container.querySelectorAll("button")].forEach((c) => c.classList.remove("active"));
+        pill.classList.add("active");
+      });
+      container.appendChild(pill);
+    });
   }
 
   document.addEventListener("DOMContentLoaded", init);
