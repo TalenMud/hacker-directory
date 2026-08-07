@@ -1,0 +1,477 @@
+/* ==========================================================================
+   UNDER OCEAN PIRATES THEME
+   Hacker Directory — Ruturaj Bhosale (@RUTURAJROCks)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Cinzel+Decorative:wght@700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --ocean-abyss: #020b14;
+  --ocean-deep: #051923;
+  --ocean-mid: #003554;
+  --ocean-cyan: #00f5d4;
+  --ocean-teal: #00b4d8;
+  --pirate-gold: #ffd166;
+  --pirate-gold-glow: rgba(255, 209, 102, 0.4);
+  --pirate-crimson: #ef476f;
+  --ghost-purple: #7b2cbf;
+  --wood-dark: #1b120c;
+  --wood-border: #4a3325;
+  --parchment-bg: rgba(5, 25, 35, 0.85);
+  --parchment-border: rgba(0, 245, 212, 0.3);
+  --font-pirate: 'Pirata One', cursive, serif;
+  --font-cinzel: 'Cinzel Decorative', serif;
+}
+
+[data-theme="light"] {
+  --ocean-abyss: #e0f2fe;
+  --ocean-deep: #bae6fd;
+  --ocean-mid: #0284c7;
+  --ocean-cyan: #0284c7;
+  --ocean-teal: #0369a1;
+  --pirate-gold: #b45309;
+  --pirate-gold-glow: rgba(180, 83, 9, 0.2);
+  --parchment-bg: rgba(255, 255, 255, 0.9);
+  --parchment-border: rgba(2, 132, 199, 0.35);
+  --wood-dark: #f8fafc;
+  --wood-border: #cbd5e1;
+}
+
+/* Background Ocean Canvas */
+#ocean-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Base Body Modifications */
+body {
+  position: relative;
+  background-color: var(--ocean-abyss);
+  overflow-x: hidden;
+}
+
+/* Main Container styling */
+.ocean-hero-container {
+  position: relative;
+  z-index: 2;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+/* Pirate Badge Header */
+.pirate-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, rgba(255, 209, 102, 0.15), rgba(0, 245, 212, 0.15));
+  border: 1px solid var(--pirate-gold);
+  border-radius: 999px;
+  padding: 0.4rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--pirate-gold);
+  box-shadow: 0 0 15px var(--pirate-gold-glow);
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.pirate-header-badge .badge-icon {
+  font-size: 1.1rem;
+}
+
+/* Glowing Pirate Title */
+.pirate-title {
+  font-family: var(--font-pirate);
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem 0;
+  line-height: 1;
+  background: linear-gradient(180deg, #ffffff 15%, var(--pirate-gold) 70%, #d4a373 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 30px rgba(255, 209, 102, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+[data-theme="light"] .pirate-title {
+  background: linear-gradient(180deg, #1e293b 15%, #b45309 70%, #78350f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.pirate-subtitle {
+  font-family: var(--font-display);
+  color: var(--ocean-cyan);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+/* Sunken Parchment Card */
+.sunken-card {
+  background: var(--parchment-bg);
+  border: 1px solid var(--parchment-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(0, 245, 212, 0.05);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.sunken-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pirate-gold), var(--ocean-cyan), var(--ghost-purple));
+}
+
+.sunken-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 60px rgba(0, 245, 212, 0.15);
+}
+
+/* Interactive Pirate Compass Wheel */
+.compass-widget {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(2, 11, 20, 0.7);
+  border: 1px dashed var(--pirate-gold);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: inset 0 0 15px rgba(255, 209, 102, 0.08);
+}
+
+.compass-wheel {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 3px solid var(--pirate-gold);
+  display: grid;
+  place-items: center;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 20px var(--pirate-gold-glow);
+  cursor: pointer;
+  flex-shrink: 0;
+  background: radial-gradient(circle, rgba(255,209,102,0.2) 0%, rgba(5,25,35,0.9) 70%);
+}
+
+.compass-wheel:hover {
+  transform: rotate(270deg);
+}
+
+.compass-text h3 {
+  margin: 0 0 0.2rem;
+  font-family: var(--font-pirate);
+  font-size: 1.4rem;
+  color: var(--pirate-gold);
+  letter-spacing: 0.03em;
+}
+
+.compass-text p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* Treasure Chest Interactive Feature */
+.treasure-vault {
+  background: linear-gradient(145deg, rgba(27, 18, 12, 0.95), rgba(5, 25, 35, 0.98));
+  border: 2px solid var(--pirate-gold);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 0 35px rgba(255, 209, 102, 0.25);
+  margin-top: 3rem;
+  text-align: center;
+}
+
+[data-theme="light"] .treasure-vault {
+  background: linear-gradient(145deg, #fef3c7, #e0f2fe);
+  border-color: #b45309;
+}
+
+.chest-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.chest-icon {
+  font-size: 4rem;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 15px var(--pirate-gold));
+  user-select: none;
+}
+
+.chest-icon:hover {
+  transform: scale(1.18) rotate(-5deg);
+}
+
+.chest-icon.opened {
+  animation: chestShake 0.4s ease forwards;
+}
+
+@keyframes chestShake {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.2) rotate(-10deg); }
+  50% { transform: scale(1.2) rotate(10deg); }
+  75% { transform: scale(1.1) rotate(-5deg); }
+  100% { transform: scale(1.1) rotate(0deg); }
+}
+
+.treasure-vault h3 {
+  font-family: var(--font-pirate);
+  font-size: 2rem;
+  color: var(--pirate-gold);
+  margin: 0.5rem 0 0.3rem;
+  letter-spacing: 0.04em;
+}
+
+.treasure-vault p.vault-hint {
+  color: var(--ocean-cyan);
+  font-size: 0.92rem;
+  margin: 0 0 1rem;
+  font-family: var(--font-mono);
+}
+
+/* Doubloon Loot Items Grid */
+.loot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, max-height 0.6s ease, margin 0.5s ease;
+}
+
+.loot-grid.active {
+  opacity: 1;
+  max-height: 1200px;
+  margin-top: 1.5rem;
+}
+
+.loot-card {
+  background: rgba(0, 53, 84, 0.55);
+  border: 1px solid var(--ocean-cyan);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  text-align: left;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
+  position: relative;
+}
+
+[data-theme="light"] .loot-card {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.loot-card:hover {
+  background: rgba(0, 245, 212, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 245, 212, 0.25);
+}
+
+.loot-card h4 {
+  margin: 0 0 0.4rem;
+  color: var(--pirate-gold);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.loot-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Custom Pirate Pills */
+.pirate-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.5rem 0;
+}
+
+.pirate-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: rgba(5, 25, 35, 0.8);
+  border: 1px solid var(--ocean-cyan);
+  color: var(--ocean-cyan);
+  box-shadow: 0 0 12px rgba(0, 245, 212, 0.15);
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.pirate-pill:hover {
+  background: var(--ocean-cyan);
+  color: var(--ocean-abyss);
+  box-shadow: 0 0 18px var(--ocean-cyan);
+  transform: translateY(-2px);
+}
+
+/* Stats counter grid */
+.abyssal-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.stat-box {
+  background: rgba(2, 11, 20, 0.65);
+  border: 1px solid rgba(0, 245, 212, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+  text-align: center;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+[data-theme="light"] .stat-box {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.stat-box:hover {
+  border-color: var(--pirate-gold);
+  transform: translateY(-2px);
+}
+
+.stat-box .val {
+  font-family: var(--font-pirate);
+  font-size: 2.2rem;
+  color: var(--pirate-gold);
+  line-height: 1;
+}
+
+.stat-box .lbl {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.4rem;
+}
+
+/* Audio & Interactive Control Floating Bar */
+.ship-controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding: 1.2rem;
+  background: rgba(5, 25, 35, 0.75);
+  border: 1px solid var(--wood-border);
+  border-radius: var(--radius-md);
+}
+
+.btn-pirate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--pirate-gold), #e0a96d);
+  color: #1a0f00;
+  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px var(--pirate-gold-glow);
+  transition: all 0.2s ease;
+}
+
+.btn-pirate:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 25px var(--pirate-gold);
+}
+
+.btn-pirate-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ocean-cyan);
+  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid var(--ocean-cyan);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-pirate-outline:hover {
+  background: rgba(0, 245, 212, 0.15);
+  box-shadow: 0 0 15px rgba(0, 245, 212, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Sound toggle & interactive audio indicator */
+#audio-toggle {
+  background: transparent;
+  border: 1px solid var(--pirate-gold);
+  color: var(--pirate-gold);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#audio-toggle:hover {
+  background: var(--pirate-gold);
+  color: var(--ocean-abyss);
+}
+
+/* Plunder Doubloons Notification floating badge */
+.plunder-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-pirate);
+  font-size: 1.3rem;
+  color: var(--pirate-gold);
+  margin-top: 0.8rem;
+}

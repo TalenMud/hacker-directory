@@ -1,0 +1,158 @@
+/*
+  Talen's personal page styles.
+  This file only affects contributors/talen/index.html — nothing site-wide.
+  Copy whatever you like from here into your own contributors/<you>/styles.css.
+*/
+
+.profile-hero {
+  padding: 3.5rem 0 2rem;
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.profile-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.profile-name {
+  font-family: var(--font-goofy);
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.profile-meta {
+  color: var(--text-secondary);
+  margin: 0.3rem 0 0.7rem;
+}
+.profile-bio {
+  max-width: 640px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+section.block {
+  padding: 1.5rem 0 2.5rem;
+}
+section.block h2 {
+  font-family: var(--font-goofy);
+  font-size: 1.45rem;
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+section.block h2::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+}
+[data-theme="light"] section.block h2::before {
+  background: linear-gradient(135deg, var(--accent-pink-soft), var(--accent-lilac));
+}
+.links-row {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.viz-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+.viz-panel p.caption {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+#mcmc-canvas-wrap {
+  display: flex;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+}
+.viz-controls {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.viz-controls button {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.viz-controls button:hover {
+  border-color: var(--accent-green);
+  transform: translateY(-1px);
+}
+.stat-chip {
+  font-family: var(--font-mono);
+  background: var(--pill-bg);
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+}
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+.project-list li {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.2rem;
+}
+.project-list strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.project-list span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/*
+  These map this page's specific tag pills to colors — keyed by the
+  data-pill attribute on each <span class="pill" data-pill="..."> below.
+  If you copy this pattern, swap in your own tags and hex values; a
+  data-pill value that doesn't have a matching rule just falls back to
+  plain text, it won't inherit Talen's colors.
+*/
+.pill[data-pill="python"] { --pill-color: #3ef2a1; }
+.pill[data-pill="cpp"] { --pill-color: #4d8bff; }
+.pill[data-pill="cuda"] { --pill-color: #ff5cb3; }
+.pill[data-pill="react"] { --pill-color: #ffd23f; }
+.pill[data-pill="oss"] { --pill-color: #33d9c1; }
+.pill[data-pill="bayes"] { --pill-color: #a56dff; }
+
+[data-theme="light"] .pill[data-pill="python"] { --pill-color: #2fb894; }
+[data-theme="light"] .pill[data-pill="cpp"] { --pill-color: #3fa9e0; }
+[data-theme="light"] .pill[data-pill="cuda"] { --pill-color: #e0538c; }
+[data-theme="light"] .pill[data-pill="react"] { --pill-color: #e08a3f; }
+[data-theme="light"] .pill[data-pill="oss"] { --pill-color: #2fa88f; }
+[data-theme="light"] .pill[data-pill="bayes"] { --pill-color: #8a63e6; }

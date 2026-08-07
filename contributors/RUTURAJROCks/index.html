@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Captain Ruturaj Bhosale — Under Ocean Pirate Directory</title>
+  <meta name="description" content="Ruturaj Bhosale's personal pirate lair in the hacker directory. AI Engineer at NSUT crafting RAG, C++, and AI Agents." />
+  
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../assets/theme.js"></script>
+</head>
+<body>
+
+  <!-- Under Ocean Interactive Canvas -->
+  <canvas id="ocean-canvas"></canvas>
+
+  <!-- Top Navigation -->
+  <nav class="nav">
+    <a class="nav-brand" href="../../index.html">
+      <span class="dot"></span>
+      hacker directory
+    </a>
+    <div class="nav-links">
+      <a href="../../index.html">← back to directory</a>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Hero Content -->
+  <main class="wrap ocean-hero-container">
+    
+    <!-- Top Pirate Status Badge -->
+    <div class="pirate-header-badge">
+      <span class="badge-icon">⚓</span>
+      <span>SUBMERGED IN THE ABYSS · DEPTH: 4,500 FATHOMS</span>
+    </div>
+
+    <!-- Pirate Title & Subtitle -->
+    <h1 class="pirate-title">
+      <span>CAPTAIN RUTURAJ BHOSALE</span>
+      <span style="font-size: 0.6em; vertical-align: middle;">🏴‍☠️</span>
+    </h1>
+    
+    <div class="pirate-subtitle">
+      <span>AI Engineer @ NSUT</span>
+      <span>·</span>
+      <span>Scourge of the Neural High Seas</span>
+      <span>·</span>
+      <span style="font-family: var(--font-mono); font-size: 0.9em; opacity: 0.85;">@RUTURAJROCks</span>
+    </div>
+
+    <!-- Sunken Parchment Bio Card -->
+    <div class="sunken-card">
+      <p style="font-size: 1.15rem; line-height: 1.65; margin-top: 0; color: var(--text-primary);">
+        “Building software and making solutions for real impact and fun. Navigating the uncharted abyssal depths of 
+        <strong style="color: var(--pirate-gold);">RAG architectures</strong>, 
+        <strong style="color: var(--ocean-cyan);">Autonomous AI Swarms</strong>, and 
+        <strong style="color: var(--pirate-crimson);">High-Speed C++ Systems</strong>.”
+      </p>
+
+      <!-- Abyssal Stats Counter -->
+      <div class="abyssal-stats">
+        <div class="stat-box">
+          <div class="val">4,500</div>
+          <div class="lbl">Fathoms Deep</div>
+        </div>
+        <div class="stat-box">
+          <div class="val">100+</div>
+          <div class="lbl">Repos Raided</div>
+        </div>
+        <div class="stat-box">
+          <div class="val">99.9%</div>
+          <div class="lbl">RAG Precision</div>
+        </div>
+        <div class="stat-box">
+          <div class="val">0.1 ms</div>
+          <div class="lbl">C++ Engine Latency</div>
+        </div>
+      </div>
+
+      <!-- Skill Doubloons -->
+      <div class="pirate-pills">
+        <span class="pirate-pill">🐍 Python</span>
+        <span class="pirate-pill">🧠 RAG</span>
+        <span class="pirate-pill">⚡ C++</span>
+        <span class="pirate-pill">🤖 Agents</span>
+        <span class="pirate-pill">🔮 Deep Learning</span>
+        <span class="pirate-pill">⚓ Vector DBs</span>
+      </div>
+
+      <!-- Interactive Compass Navigation Widget -->
+      <div class="compass-widget" id="compass-box">
+        <div class="compass-wheel" id="compass-wheel" title="Click to spin the pirate wheel!">
+          <span style="font-size: 1.8rem; display: block;">🧭</span>
+        </div>
+        <div class="compass-text">
+          <h3 id="compass-heading">Heading: 315° NW — North to AI Frontiers</h3>
+          <p id="compass-quote">"Spin the helm to recalculate course across the digital abyss!"</p>
+        </div>
+      </div>
+
+      <!-- Action Buttons & Links -->
+      <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.5rem;">
+        <a class="btn-pirate" href="https://github.com/RUTURAJROCks" target="_blank" rel="noopener">
+          <span>🏴‍☠️ Board GitHub</span>
+          <span style="font-family: var(--font-mono); opacity: 0.8;">↗</span>
+        </a>
+        <a class="btn-pirate-outline" href="https://www.ruturajbhosale.com" target="_blank" rel="noopener">
+          <span>🧭 Captain's Quarters (Website)</span>
+          <span style="font-family: var(--font-mono);">↗</span>
+        </a>
+        <button id="audio-toggle" type="button" aria-label="Toggle Ocean Ambiance Sound">
+          🔊 Sound: Off
+        </button>
+      </div>
+    </div>
+
+    <!-- Interactive Sunken Treasure Vault -->
+    <div class="treasure-vault">
+      <div class="chest-icon-wrapper">
+        <span class="chest-icon" id="treasure-chest" title="Click to plunder the sunken treasure!">🧰</span>
+      </div>
+      <h3>SUNKEN TREASURE VAULT</h3>
+      <p class="vault-hint" id="vault-status">✨ Click the Captain's Chest above to unlock secret loot & AI artifacts! ✨</p>
+      
+      <div class="plunder-counter" id="plunder-display" style="display: none;">
+        <span>🪙 Plundered Gold Doubloons:</span>
+        <span id="gold-count" style="font-weight: bold; font-size: 1.4em;">0</span>
+      </div>
+
+      <!-- Unlocked Loot Items -->
+      <div class="loot-grid" id="loot-grid">
+        <div class="loot-card" onclick="plunderGold(50)">
+          <h4>🔱 Abyssal RAG Navigator</h4>
+          <p>High-speed vector indexing engine that searches deep knowledge bases faster than a sea monster strikes. Click to plunder 50 gold!</p>
+        </div>
+        <div class="loot-card" onclick="plunderGold(75)">
+          <h4>🏴‍☠️ Buccaneer AI Agent Fleet</h4>
+          <p>Autonomous swarms of intelligent agents deployed across parallel streams to solve complex multi-step reasoning tasks. Click to plunder 75 gold!</p>
+        </div>
+        <div class="loot-card" onclick="plunderGold(100)">
+          <h4>⚡ Kraken C++ Compute Engine</h4>
+          <p>Ultra-optimized low-level C++ algorithms tuned for real-time performance and matrix operations. Click to plunder 100 gold!</p>
+        </div>
+        <div class="loot-card" onclick="plunderGold(150)">
+          <h4>🔮 Spectral Neural Orchestrator</h4>
+          <p>Custom agent execution pipelines combining LLMs with memory trees and live execution hooks. Click to plunder 150 gold!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Captain's Manifesto -->
+    <section class="sunken-card" style="margin-top: 3rem;">
+      <h2 style="font-family: var(--font-pirate); font-size: 2rem; color: var(--pirate-gold); margin-top: 0;">
+        ⚓ THE ABYSSAL MANIFESTO
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem;">
+        The true power of AI isn't discovered on the surface—it's forged down in the high-seas abyssal depths of machine intelligence. 
+        Whether it's building sub-millisecond C++ algorithms, training vector-search retrieval systems, or orchestrating swarms of 
+        autonomous AI agents, my mission is to pioneer software solutions that create real impact, conquer complex technical challenges, and bring endless fun to the journey.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" style="position: relative; z-index: 2;">
+    ⚓ Captain Ruturaj Bhosale's Page in the <a href="../../index.html">Hacker Directory</a> · Fair Winds & Following Seas 🌊
+  </footer>
+
+  <!-- Under Ocean Dynamic Script -->
+  <script>
+    HDTheme.init();
+
+    // --- Interactive Ocean Canvas ---
+    const canvas = document.getElementById('ocean-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Floating Bioluminescent Bubbles & Particles
+    const particles = [];
+    const particleCount = 45;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 4 + 1,
+        speedY: Math.random() * 0.8 + 0.2,
+        speedX: (Math.random() - 0.5) * 0.4,
+        opacity: Math.random() * 0.6 + 0.2,
+        hue: Math.random() > 0.4 ? 170 : 45 // Cyan or Gold glow
+      });
+    }
+
+    let time = 0;
+    function animateOcean() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      time += 0.01;
+
+      // Draw Underwater God Rays
+      for (let i = 0; i < 4; i++) {
+        const rayGradient = ctx.createLinearGradient(
+          canvas.width * (0.2 + i * 0.2), 0, 
+          canvas.width * (0.1 + i * 0.25), canvas.height
+        );
+        const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+        const alpha = isDark ? 0.04 : 0.08;
+        rayGradient.addColorStop(0, `rgba(0, 245, 212, ${alpha + Math.sin(time + i) * 0.02})`);
+        rayGradient.addColorStop(1, 'transparent');
+
+        ctx.fillStyle = rayGradient;
+        ctx.beginPath();
+        ctx.moveTo(canvas.width * (0.15 + i * 0.2), 0);
+        ctx.lineTo(canvas.width * (0.25 + i * 0.2), 0);
+        ctx.lineTo(canvas.width * (0.3 + i * 0.25), canvas.height);
+        ctx.lineTo(canvas.width * (0.1 + i * 0.25), canvas.height);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      // Draw Swimming Sea Bubbles
+      particles.forEach(p => {
+        p.y -= p.speedY;
+        p.x += Math.sin(time + p.y * 0.01) * p.speedX;
+
+        if (p.y < -10) {
+          p.y = canvas.height + 10;
+          p.x = Math.random() * canvas.width;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${p.hue}, 100%, 65%, ${p.opacity})`;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = p.hue === 170 ? '#00f5d4' : '#ffd166';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+
+      requestAnimationFrame(animateOcean);
+    }
+    animateOcean();
+
+    // --- Interactive Pirate Compass ---
+    const compassWheel = document.getElementById('compass-wheel');
+    const compassHeading = document.getElementById('compass-heading');
+    const compassQuote = document.getElementById('compass-quote');
+
+    const headings = [
+      { deg: "315° NW", text: "North to AI Frontiers — Uncharted Neural Waters" },
+      { deg: "045° NE", text: "Northeast to High-Performance C++ Performance" },
+      { deg: "180° S", text: "South to Abyssal RAG Knowledge Retrieval" },
+      { deg: "270° W", text: "West to Autonomous Agent Fleet Dominance" }
+    ];
+    let headingIdx = 0;
+
+    compassWheel.addEventListener('click', () => {
+      headingIdx = (headingIdx + 1) % headings.length;
+      const targetDeg = (headingIdx + 1) * 270;
+      compassWheel.style.transform = `rotate(${targetDeg}deg)`;
+      compassHeading.textContent = `Heading: ${headings[headingIdx].deg}`;
+      compassQuote.textContent = `"${headings[headingIdx].text}"`;
+      playBubbleSound();
+    });
+
+    // --- Interactive Treasure Chest & Gold Doubloons ---
+    const treasureChest = document.getElementById('treasure-chest');
+    const lootGrid = document.getElementById('loot-grid');
+    const vaultStatus = document.getElementById('vault-status');
+    const plunderDisplay = document.getElementById('plunder-display');
+    const goldCountEl = document.getElementById('gold-count');
+
+    let totalGold = 0;
+    let chestOpened = false;
+
+    treasureChest.addEventListener('click', () => {
+      if (!chestOpened) {
+        chestOpened = true;
+        treasureChest.textContent = '👑';
+        treasureChest.classList.add('opened');
+        lootGrid.classList.add('active');
+        plunderDisplay.style.display = 'inline-flex';
+        vaultStatus.textContent = "🎉 TREASURE VAULT OPENED! Click doubloon artifacts below to plunder gold!";
+        totalGold += 100;
+        goldCountEl.textContent = totalGold;
+        playCoinSound();
+      } else {
+        // Spin chest
+        treasureChest.style.transform = 'rotate(360deg)';
+        setTimeout(() => treasureChest.style.transform = '', 400);
+        totalGold += 10;
+        goldCountEl.textContent = totalGold;
+        playCoinSound();
+      }
+    });
+
+    function plunderGold(amount) {
+      totalGold += amount;
+      goldCountEl.textContent = totalGold;
+      playCoinSound();
+    }
+
+    // --- Web Audio API Synth Sound Generator ---
+    let audioCtx = null;
+    let soundEnabled = false;
+
+    const audioToggleBtn = document.getElementById('audio-toggle');
+    audioToggleBtn.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      if (soundEnabled) {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        audioToggleBtn.textContent = '🔊 Sound: On';
+        playCoinSound();
+      } else {
+        audioToggleBtn.textContent = '🔇 Sound: Off';
+      }
+    });
+
+    function playCoinSound() {
+      if (!soundEnabled || !audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(987.77, audioCtx.currentTime); // B5
+      osc.frequency.exponentialRampToValueAtTime(1318.51, audioCtx.currentTime + 0.1); // E6
+      gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.3);
+    }
+
+    function playBubbleSound() {
+      if (!soundEnabled || !audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(300, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.15);
+      gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.15);
+    }
+  </script>
+</body>
+</html>
