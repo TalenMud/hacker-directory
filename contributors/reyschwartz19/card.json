@@ -1,0 +1,12 @@
+{
+  "name": "Remy",
+  "role": "Backend & Cloud Developer | CS Education Graduate",
+  "university": "University of Bamenda (HTTC Bambili)",
+  "github": "reyschwartz19",
+  "bio": "CS Education graduate (DIPES I) turned backend engineer. Building in public with Node.js, Docker, Redis, and AWS — shipping projects like a production-grade URL shortener and an npm CLI tool for scaffolding backend structures. Deep into cloud fundamentals via AWS DVA-C02 prep, and exploring the African tech ecosystem along the way.",
+  "tags": ["Backend Development", "Node.js", "AWS", "Docker", "Redis", "Open Source"],
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/njong-remy-nga-i-bb7690343/",
+    "github": "https://github.com/reyschwartz19"
+  }
+}
