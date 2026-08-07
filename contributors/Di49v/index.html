@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Divleen Kaur — hacker directory</title>
+  <meta name="description" content="Divleen Kaur's personal page — AI, Cybersecurity, Multi-Agent Systems, open source." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>" />
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../assets/theme.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-brand" href="../../index.html">
+      <span class="dot"></span>
+      hacker directory
+    </a>
+    <div class="nav-links">
+      <a href="../../index.html">← back to directory</a>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <div class="profile-hero">
+      <img class="profile-avatar" src="https://github.com/divleenkaur.png?size=192" alt="Divleen Kaur" onerror="this.style.display='none'" />
+      <div>
+        <h1 class="profile-name">Divleen Kaur</h1>
+        <p class="profile-meta">B.Tech CSE Student · AI & Cybersecurity Enthusiast</p>
+        <p class="profile-bio">
+          Building multi-agent AI platforms and cross-platform applications. Passionate about data structures, algorithmic problem solving, network defense, and orchestrating efficient backends.
+        </p>
+        <div class="pills" style="margin-top:0.8rem;">
+          <span class="pill" data-pill="cpp">C++</span>
+          <span class="pill" data-pill="python">Python</span>
+          <span class="pill" data-pill="flutter">Flutter</span>
+          <span class="pill" data-pill="langchain">LangChain</span>
+          <span class="pill" data-pill="cyber">Cybersecurity</span>
+        </div>
+        <div class="links-row">
+          <a class="btn btn-outline" href="https://github.com/divleenkaur" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="block">
+      <h2>Multi-Agent Swarm</h2>
+      <div class="viz-panel">
+        <p class="caption">
+          A live visualization of autonomous agents (boids) navigating a 2D space. 
+          Each agent follows three simple local rules: separation, alignment, and cohesion. 
+          <strong>Click anywhere on the canvas</strong> to trigger a disruption and watch the swarm rapidly orchestrate a new pattern.
+        </p>
+        <div id="mcmc-canvas-wrap"></div>
+        <div class="viz-controls">
+          <button id="mcmc-reset">Scatter Swarm</button>
+          <span class="stat-chip">Active Agents: <span id="agent-count">75</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Currently building</h2>
+      <ul class="project-list">
+        <li>
+          <strong>MatchMinds</strong>
+          <span>AI-powered campus collaboration platform built with Python, FastAPI, and Flutter, utilizing PostgreSQL on Supabase and FAISS vectorization.</span>
+        </li>
+        <li>
+          <strong>CanvasAI</strong>
+          <span>Visual whiteboard tutoring platform architected with LangChain for multi-agent system orchestration.</span>
+        </li>
+        <li>
+          <strong>Network Defense & Low-Level Exploits</strong>
+          <span>Engaging with wargames and studying secure system programming to bridge the gap between software development and cybersecurity.</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    This is my page in the <a href="../../index.html">hacker directory</a> — make your own in a PR.
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  
+  <!-- Embedded JS to bypass caching and file link errors -->
+  <script>
+    (function () {
+      const W = 640;
+      const H = 420;
+
+      let sketch = function (p) {
+        let flock = [];
+        let isScattering = false;
+
+        function isLight() {
+          return document.documentElement.getAttribute("data-theme") === "light";
+        }
+
+        p.setup = function () {
+          const holder = document.getElementById("mcmc-canvas-wrap");
+          const canvas = p.createCanvas(W, H);
+          if (holder) canvas.parent(holder);
+          
+          for (let i = 0; i < 75; i++) {
+            flock.push(new Boid());
+          }
+
+          const scatterBtn = document.getElementById("mcmc-reset");
+          if (scatterBtn) {
+            scatterBtn.addEventListener("click", () => triggerScatter(W/2, H/2));
+          }
+
+          canvas.mousePressed(() => {
+            triggerScatter(p.mouseX, p.mouseY);
+          });
+        };
+
+        function triggerScatter(x, y) {
+          isScattering = true;
+          setTimeout(() => isScattering = false, 800);
+          for (let boid of flock) {
+            let push = p.createVector(boid.position.x - x, boid.position.y - y);
+            push.normalize();
+            push.mult(15);
+            boid.applyForce(push);
+          }
+        }
+
+        p.draw = function () {
+          const light = isLight();
+          if (light) p.background(255, 250, 243);
+          else p.background(8, 8, 8);
+
+          for (let boid of flock) {
+            boid.edges();
+            boid.flock(flock, isScattering);
+            boid.update();
+            boid.show(light);
+          }
+        };
+
+        class Boid {
+          constructor() {
+            this.position = p.createVector(p.random(W), p.random(H));
+            let angle = p.random(p.TWO_PI);
+            this.velocity = p.createVector(p.cos(angle), p.sin(angle));
+            this.velocity.setMag(p.random(2, 4));
+            this.acceleration = p.createVector();
+            this.maxForce = 0.2;
+            this.maxSpeed = 4;
+          }
+
+          edges() {
+            if (this.position.x > W + 10) this.position.x = -10;
+            else if (this.position.x < -10) this.position.x = W + 10;
+            if (this.position.y > H + 10) this.position.y = -10;
+            else if (this.position.y < -10) this.position.y = H + 10;
+          }
+
+          align(boids) {
+            let perceptionRadius = 50;
+            let steering = p.createVector();
+            let total = 0;
+            for (let other of boids) {
+              let d = p.dist(this.position.x, this.position.y, other.position.x, other.position.y);
+              if (other != this && d < perceptionRadius) {
+                steering.add(other.velocity);
+                total++;
+              }
+            }
+            if (total > 0) {
+              steering.div(total);
+              steering.setMag(this.maxSpeed);
+              steering.sub(this.velocity);
+              steering.limit(this.maxForce);
+            }
+            return steering;
+          }
+
+          cohesion(boids) {
+            let perceptionRadius = 50;
+            let steering = p.createVector();
+            let total = 0;
+            for (let other of boids) {
+              let d = p.dist(this.position.x, this.position.y, other.position.x, other.position.y);
+              if (other != this && d < perceptionRadius) {
+                steering.add(other.position);
+                total++;
+              }
+            }
+            if (total > 0) {
+              steering.div(total);
+              steering.sub(this.position);
+              steering.setMag(this.maxSpeed);
+              steering.sub(this.velocity);
+              steering.limit(this.maxForce);
+            }
+            return steering;
+          }
+
+          separation(boids) {
+            let perceptionRadius = 24;
+            let steering = p.createVector();
+            let total = 0;
+            for (let other of boids) {
+              let d = p.dist(this.position.x, this.position.y, other.position.x, other.position.y);
+              if (other != this && d < perceptionRadius) {
+                let diff = p.createVector(this.position.x - other.position.x, this.position.y - other.position.y);
+                diff.div(d * d);
+                steering.add(diff);
+                total++;
+              }
+            }
+            if (total > 0) {
+              steering.div(total);
+              steering.setMag(this.maxSpeed);
+              steering.sub(this.velocity);
+              steering.limit(this.maxForce);
+            }
+            return steering;
+          }
+
+          flock(boids, scatter) {
+            if (scatter) return; 
+            let alignment = this.align(boids);
+            let cohesion = this.cohesion(boids);
+            let separation = this.separation(boids);
+
+            this.applyForce(alignment);
+            this.applyForce(cohesion);
+            
+            separation.mult(1.5);
+            this.applyForce(separation);
+          }
+
+          applyForce(force) {
+            this.acceleration.add(force);
+          }
+
+          update() {
+            this.position.add(this.velocity);
+            this.velocity.add(this.acceleration);
+            this.velocity.limit(this.maxSpeed);
+            this.acceleration.mult(0);
+          }
+
+          show(light) {
+            p.strokeWeight(6);
+            if (light) {
+              p.stroke(62, 242, 161, 200); 
+            } else {
+              p.stroke(165, 109, 255, 200);
+            }
+            
+            let theta = this.velocity.heading() + p.PI / 2;
+            p.push();
+            p.translate(this.position.x, this.position.y);
+            p.rotate(theta);
+            p.beginShape();
+            p.vertex(0, -10);
+            p.vertex(-6, 6);
+            p.vertex(6, 6);
+            p.endShape(p.CLOSE);
+            p.pop();
+          }
+        }
+      };
+
+      new p5(sketch);
+    })();
+  </script>
+  <script>HDTheme.init();</script>
+</body>
+</html>
