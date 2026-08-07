@@ -1,0 +1,11 @@
+{
+  "name": "Bibi Shania Tinkouree",
+  "role": "Software Engineering Student",
+  "university": "African Leadership College of Higher Education",
+  "github": "shania-prin",
+  "bio": "I like coding.",
+  "tags": ["Python", "JavaScript", "HTML"],
+  "links": {
+    "website": "https://shania.com"
+  }
+}

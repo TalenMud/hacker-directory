@@ -1,0 +1,11 @@
+{
+  "name": "Het Prajapati",
+  "role": "CS Student, Full stack web developer",
+  "university": "Your school or company (optional)",
+  "github": "het0103",
+  "bio": "Computer Engineering student passionate about building full-stack web apllicatpions and solving real-world problems.",
+  "tags": ["Python", "JavaScript", "React", "FastAPI"],
+  "links": {
+    "website": "https://github.com/het0103",
+  }
+}
