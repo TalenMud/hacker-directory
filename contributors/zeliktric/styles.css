@@ -1,0 +1,67 @@
+/*
+  Put your own page-specific CSS here.
+
+  assets/style.css (site-wide) gives you the dark/light theme, fonts,
+  colors, and the .card/.pill/.btn building blocks for free — this file
+  is where YOU add anything custom to your own page. It's only ever
+  loaded by your index.html, so nothing you write here can affect
+  anyone else's page or the main directory grid.
+
+  Want an example of this in use? See contributors/talen/styles.css —
+  feel free to copy any of it.
+*/
+p
+{
+    margin: 0;
+}
+
+.gamePanel
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.gameCanvas
+{
+    width: 100%;
+    border-radius: 10px;
+}
+
+input[type="color"]
+{
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.colourPicker
+{
+    margin-top: 10px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0;
+
+    cursor: pointer;
+}
+
+.submitButton
+{
+    width: 150px;
+    height: 50px;
+    font-size: large;
+    border-radius: 10px;
+    
+    color: white;
+    background-color: var(--accent-purple);
+}
+
+.bestGuessPanel
+{
+    display: flex;
+    pointer-events: none;
+}

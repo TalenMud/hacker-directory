@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Flourish Agbanoma - foa-developer</title>
+  <meta name="description" content="Your personal page in the hacker directory." />
+  <!--
+    Hey! This is YOUR page. The stylesheet below gives you the site's
+    dark/light theme + fonts for free, but you don't have to use any of it —
+    delete the whole <body> and build something completely different if
+    you want. Games, art, a terminal, a blog, whatever. Go wild.
+  -->
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../assets/theme.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-brand" href="../../index.html">
+      <span class="dot"></span>
+      hacker directory
+    </a>
+    <div class="nav-links">
+      <a href="../../index.html">← back to directory</a>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="wrap" style="padding-top: 3rem; padding-bottom: 4rem;">
+    <h1 style="font-family: var(--font-goofy); font-size: 2.3rem; margin-bottom: 0.4rem;">Flourish Agbanoma</h1>
+    <p style="color: var(--text-secondary); margin-top: 0;">Fullstack dev · University of Benin · @foa-developer</p>
+
+    <p style="max-width: 620px; line-height: 1.6; color: var(--text-secondary);">
+     Hey, I'm flourish,a computer science student and fullstack dev currently learning and building projecrts using the MERN stack, also trying to learn about AI cause of the era we are in right now
+    </p>
+
+    <div class="pills" style="margin: 1.2rem 0;">
+      <span class="pill" style="--pill-color:#3ef2a1">MERN</span>
+      <span class="pill" style="--pill-color:#4d8bff">Python</span>
+      <span class="pill" style="--pill-color:#ff5cb3">AWS</span>
+    </div>
+
+    <div style="display:flex; gap:0.7rem; flex-wrap: wrap;">
+      <a class="btn btn-outline" href="https://github.com/foa-developer" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn btn-outline" href="https://flourishagbanoma.vercel.app" target="_blank" rel="noopener">Website ↗</a>
+    </div>
+
+    <section style="margin-top: 3rem;">
+      <h2 style="font-family: var(--font-goofy); font-size: 1.45rem;">Put anything here</h2>
+      <p style="color: var(--text-secondary); max-width: 620px; line-height: 1.6;">
+        Check out this dashoard I built, nth much tho<br><br>Just pulled data from a  site and dislayed it 
+        <a href="https://xauusd-dashboard-tan.vercel.app/" style="color: var(--accent-blue);">Dashboard</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    This is my page in the <a href="../../index.html">hacker directory</a> — make your own in a PR.
+  </footer>
+
+  <script>HDTheme.init();</script>
+</body>
+</html>

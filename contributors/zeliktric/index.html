@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zeliktric — hacker directory</title>
+  <meta name="description" content="Zeliktric's personal page in the hacker directory." />
+  <!--
+    Hey! This is YOUR page. The stylesheet below gives you the site's
+    dark/light theme + fonts for free, but you don't have to use any of it —
+    delete the whole <body> and build something completely different if
+    you want. Games, art, a terminal, a blog, whatever. Go wild.
+  -->
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="../talenmud/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../assets/theme.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-brand" href="../../index.html">
+      <span class="dot"></span>
+      hacker directory
+    </a>
+    <div class="nav-links">
+      <a href="../../index.html">← back to directory</a>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="wrap" style="padding-top: 3rem; padding-bottom: 4rem;">
+    <h1 style="font-family: var(--font-goofy); font-size: 2.3rem; margin-bottom: 0.4rem;">Zeliktric</h1>
+    <p style="color: var(--text-secondary); margin-top: 0;">Graduate CS Student · @zeliktric</p>
+
+    <p style="max-width: 620px; line-height: 1.6; color: var(--text-secondary);">
+      Interested in frontend web development and game development
+    </p>
+
+    <div class="pills" style="margin: 1.2rem 0;">
+      <span class="pill" style="--pill-color:#3ef2a1">Python</span>
+      <span class="pill" style="--pill-color:#4d8bff">JavaScript</span>
+      <span class="pill" style="--pill-color:#ff5cb3">TypeScript</span>
+      <span class="pill" style="--pill-color:#4d8bff">C#</span>
+      <span class="pill" style="--pill-color:#ff5cb3">Unity</span>
+    </div>
+
+    <div style="display:flex; gap:0.7rem; flex-wrap: wrap;">
+      <a class="btn btn-outline" href="https://github.com/zeliktric" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+
+    <section style="margin-top: 3rem;">
+      <h2 style="font-family: var(--font-goofy); font-size: 1.45rem;">Simple Colour Guessing Game</h2>
+      <div class="gamePanel">
+        <canvas id="gameCanvas" class="gameCanvas" style="border:1px solid #000000;">
+        </canvas>
+
+        <input id="colourPicker" class="colourPicker" type="color" onchange="pickedColour(this)" />
+        <p id="colourHex">Your Colour: #000000</p>
+        <p id="similarity"><b>Similarity:</b></p>
+        <p id="bestGuess">Best Guess:</p>
+        <div class="bestGuessPanel">
+            
+            <input id="bestGuessUserColour" type="color"  />
+            <p>(</p>
+            <input id="bestGuessColour" type="color"  />
+            <p>)</p>
+        </div>
+        
+        <button id="submitButton" class="submitButton" onclick="submitButton(this)">Guess!</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    This is my page in the <a href="../../index.html">hacker directory</a> — make your own in a PR.
+  </footer>
+
+  <script>HDTheme.init();</script>
+  <script src="cgg.js"></script>
+</body>
+</html>

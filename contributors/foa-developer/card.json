@@ -1,0 +1,11 @@
+{
+  "name": "Flourish Agbanoma",
+  "role": "Frontend dev",
+  "university": "Universoty OF Benin, Nigeria",
+  "github": "foa-developer",
+  "bio": "Currently learning backend and building  full-stack projects",
+  "tags": ["Python", "JavaScript", "MERN", "AWS"],
+  "links": {
+    "website": "https://flourishagbanoma.vercel.app"
+  }
+}
