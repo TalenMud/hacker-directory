@@ -519,6 +519,49 @@ a {
   transition: transform 0.15s ease;
 }
 
+.card-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.vote-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--pill-bg);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vote-btn:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+.vote-btn .vote-symbol {
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.vote-btn.voted {
+  background: var(--accent-green);
+  border-color: var(--accent-green);
+  color: #061a13;
+}
+
+[data-theme="light"] .vote-btn.voted {
+  background: #ff9dc9;
+  border-color: #ff9dc9;
+  color: #3a1c2b;
+}
+
 .card:hover .card-footer .arrow {
   transform: translateX(3px);
 }
