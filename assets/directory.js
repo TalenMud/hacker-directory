@@ -31,7 +31,8 @@
   }
 
   function pillColorFor(tag) {
-    const key = `${isLightTheme() ? "light" : "dark"}:${tag}`;
+    const normalizedTag = (tag || "").trim().toLowerCase();
+    const key = `${isLightTheme() ? "light" : "dark"}:${normalizedTag}`;
     if (!PILL_COLORS[key]) {
       const palette = isLightTheme() ? PILL_PALETTE_LIGHT : PILL_PALETTE_DARK;
       const seenForTheme = Object.keys(PILL_COLORS).filter((k) => k.startsWith(isLightTheme() ? "light:" : "dark:")).length;
@@ -124,7 +125,9 @@
     const activeTag = filterState.tag;
 
     const filtered = people.filter((p) => {
-      const matchesTag = !activeTag || (p.tags || []).includes(activeTag);
+      const matchesTag =
+        !activeTag ||
+        (p.tags || []).some((t) => t.toLowerCase().trim() === activeTag.toLowerCase().trim());
       if (!matchesTag) return false;
       if (!query) return true;
       const haystack = [p.name, p.role, p.university, p.company, p.bio, ...(p.tags || [])]
@@ -146,12 +149,23 @@
 
   function buildTagFilters(people, filterState, onChange) {
     const container = document.getElementById("tag-filters");
-    const tagCounts = {};
-    people.forEach((p) => (p.tags || []).forEach((t) => (tagCounts[t] = (tagCounts[t] || 0) + 1)));
-    const topTags = Object.entries(tagCounts)
-      .sort((a, b) => b[1] - a[1])
+    const tagMap = {};
+
+    people.forEach((p) =>
+      (p.tags || []).forEach((t) => {
+        if (!t) return;
+        const lower = t.trim().toLowerCase();
+        if (!tagMap[lower]) {
+          tagMap[lower] = { count: 0, display: t.trim() };
+        }
+        tagMap[lower].count += 1;
+      })
+    );
+
+    const topTags = Object.values(tagMap)
+      .sort((a, b) => b.count - a.count)
       .slice(0, 12)
-      .map(([t]) => t);
+      .map((item) => item.display);
 
     const allPill = document.createElement("button");
     allPill.className = "filter-pill active";
@@ -169,7 +183,10 @@
       pill.className = "filter-pill";
       pill.textContent = tag;
       pill.addEventListener("click", () => {
-        filterState.tag = filterState.tag === tag ? null : tag;
+        filterState.tag =
+          filterState.tag && filterState.tag.toLowerCase().trim() === tag.toLowerCase().trim()
+            ? null
+            : tag;
         onChange();
         [...container.children].forEach((c) => c.classList.remove("active"));
         if (filterState.tag) pill.classList.add("active");
@@ -194,7 +211,9 @@
 
     document.getElementById("stat-count").textContent = people.length;
     const uniqueTags = new Set();
-    people.forEach((p) => (p.tags || []).forEach((t) => uniqueTags.add(t)));
+    people.forEach((p) =>
+      (p.tags || []).forEach((t) => t && uniqueTags.add(t.trim().toLowerCase()))
+    );
     document.getElementById("stat-tags").textContent = uniqueTags.size;
 
     const rerender = () => render(people, filterState);
