@@ -54,13 +54,17 @@ if (require.main === module) {
   try {
     current = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));
   } catch (e) {
-    console.error(`Could not read ${MANIFEST_PATH}: ${e.message}`);
-    process.exit(1);
+    console.warn(
+      `Warning: ${MANIFEST_PATH} is invalid and will be rebuilt from contributor folders: ${e.message}`
+    );
+    current = [];
   }
 
   if (!Array.isArray(current)) {
-    console.error(`${MANIFEST_PATH} should contain an array of usernames.`);
-    process.exit(1);
+    console.warn(
+      `Warning: ${MANIFEST_PATH} does not contain an array and will be rebuilt from contributor folders.`
+    );
+    current = [];
   }
 
   const manifest = buildManifest(current, listContributorFolders(CONTRIBUTORS_DIR));
