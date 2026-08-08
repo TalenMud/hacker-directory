@@ -1,0 +1,53 @@
+name: Build recently active contributors
+
+# contributors/recent.json drives the homepage's "recently active" strip. It
+# needs rebuilding not just when contributors/** changes but also on a timer,
+# otherwise an entry would stay "recent" forever once nothing else touches
+# that path again.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contributors/**"
+  schedule:
+    - cron: "17 4 * * *"
+  # So a maintainer can run it on demand.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Two runs close together would otherwise race each other to push. Queue the
+# runs instead of cancelling them, so the second one sees the first one's work.
+concurrency:
+  group: build-recent
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # `ref: main` rather than the commit that triggered the run: a queued run
+      # needs the branch as it is now, not as it was when it was queued.
+      # fetch-depth: 0 for full history — the script reads commit dates per
+      # contributor folder, which a shallow checkout can't answer.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Rebuild recent.json
+        run: node .github/scripts/build-recent.js
+
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet -- contributors/recent.json; then
+            echo "recent.json already reflects current activity."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: rebuild recently active contributors" -- contributors/recent.json
+          git push
