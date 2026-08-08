@@ -78,6 +78,53 @@
     return cards.filter(Boolean);
   }
 
+  // Missing recent.json (e.g. before the build-recent workflow has ever run)
+  // just means an empty strip, not a broken page.
+  async function loadRecent() {
+    try {
+      const res = await fetch("contributors/recent.json");
+      if (!res.ok) return [];
+      return await res.json();
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function recentChipTemplate(person) {
+    const github = person.github ? `https://github.com/${person.github}` : null;
+    const avatar = github ? `${github}.png?size=64` : null;
+
+    return `
+      <a class="recent-chip" href="contributors/${escapeHtml(person.username)}/index.html">
+        ${
+          avatar
+            ? `<img class="recent-avatar" src="${avatar}" alt="${escapeHtml(person.name)}" loading="lazy" onerror="this.style.display='none'" />`
+            : `<div class="recent-avatar" style="display:grid;place-items:center;font-weight:700;">${escapeHtml(initials(person.name))}</div>`
+        }
+        <span>${escapeHtml(person.name || person.username)}</span>
+      </a>
+    `;
+  }
+
+  function renderRecent(people, recent) {
+    const section = document.getElementById("recent-strip");
+    const list = document.getElementById("recent-strip-list");
+    if (!section || !list) return;
+
+    const byUsername = new Map(people.map((p) => [p.username.toLowerCase(), p]));
+    const matched = recent
+      .map((entry) => byUsername.get(String(entry.username).toLowerCase()))
+      .filter(Boolean);
+
+    if (matched.length === 0) {
+      section.style.display = "none";
+      return;
+    }
+
+    list.innerHTML = matched.map(recentChipTemplate).join("");
+    section.style.display = "";
+  }
+
   function cardTemplate(person, index) {
     const pairs = accentPairs();
     const [c1, c2] = pairs[index % pairs.length];
@@ -191,6 +238,8 @@
       console.error(e);
       return;
     }
+
+    renderRecent(people, await loadRecent());
 
     document.getElementById("stat-count").textContent = people.length;
     const uniqueTags = new Set();
