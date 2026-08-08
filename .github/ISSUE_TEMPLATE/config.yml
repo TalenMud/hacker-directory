@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Add your card to the directory
+    url: https://github.com/TalenMud/hacker-directory/blob/main/CONTRIBUTING.md
+    about: That's a pull request, not an issue — CONTRIBUTING.md walks you through it.
