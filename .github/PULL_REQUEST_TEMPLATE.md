@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <!--
 Thanks for opening a PR! If this is your first one ever, welcome —
 you're doing great. See CONTRIBUTING.md if you get stuck on anything.
@@ -26,5 +25,3 @@ card, feel free to introduce yourself! -->
 If you're not adding/updating a card, feel free to delete the checklist
 above — it doesn't apply to you.
 -->
-=======
->>>>>>> Stashed changes
