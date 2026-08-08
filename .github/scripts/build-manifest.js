@@ -50,17 +50,20 @@ function buildManifest(current, folders) {
 module.exports = { buildManifest, listContributorFolders };
 
 if (require.main === module) {
-  let current;
+  let current = [];
   try {
-    current = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));
+    const raw = fs.readFileSync(MANIFEST_PATH, "utf8");
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) {
+      current = parsed;
+    } else {
+      console.warn(
+        `${MANIFEST_PATH} should contain an array of usernames. Rebuilding from folders…`
+      );
+    }
   } catch (e) {
-    console.error(`Could not read ${MANIFEST_PATH}: ${e.message}`);
-    process.exit(1);
-  }
-
-  if (!Array.isArray(current)) {
-    console.error(`${MANIFEST_PATH} should contain an array of usernames.`);
-    process.exit(1);
+    console.warn(`Could not read ${MANIFEST_PATH}: ${e.message}`);
+    console.warn("Rebuilding manifest from contributor folders…");
   }
 
   const manifest = buildManifest(current, listContributorFolders(CONTRIBUTORS_DIR));
