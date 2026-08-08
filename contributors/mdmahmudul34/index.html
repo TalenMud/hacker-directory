@@ -1,119 +1,190 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Md. Mahmudul Kabir Himel</title>
-
-    <link rel="stylesheet" href="./styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Md. Mahmudul Kabir Himel — hacker directory</title>
+    <meta
+      name="description"
+      content="Md. Mahmudul Kabir Himel's personal page — CS student, ML & cybersecurity researcher, open source."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>"
+    />
+    <link rel="stylesheet" href="../../assets/style.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="../../assets/theme.js"></script>
   </head>
-
   <body>
-    <main class="container">
-      <section class="profile-hero">
+    <nav class="nav">
+      <a class="nav-brand" href="../../index.html">
+        <span class="dot"></span>
+        hacker directory
+      </a>
+      <div class="nav-links">
+        <a href="../../index.html">← back to directory</a>
+        <button id="theme-toggle" aria-label="Toggle theme">
+          <svg
+            class="icon-moon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg
+            class="icon-sun"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <main class="wrap">
+      <div class="profile-hero">
         <img
           class="profile-avatar"
-          src="https://github.com/mdmahmudul34.png"
+          src="https://github.com/mdmahmudul34.png?size=192"
           alt="Md. Mahmudul Kabir Himel"
+          onerror="this.style.display = 'none'"
         />
-
         <div>
           <h1 class="profile-name">Md. Mahmudul Kabir Himel</h1>
-
-          <p class="profile-meta">Computer Science Student · BRAC University</p>
-
-          <p class="profile-bio">
-            I am a Computer Science student interested in Artificial
-            Intelligence, Machine Learning, Cybersecurity, and Open Source
-            development. I enjoy building research-driven solutions,
-            participating in hackathons, and exploring emerging technologies.
+          <p class="profile-meta">
+            CS Student · ML & Cybersecurity Researcher (but really just a
+            Tech/Cyber nerd) · BRAC University · @mdmahmudul34
           </p>
-
+          <p class="profile-bio">
+            I enjoy turning curiosity into things that work. I research and
+            explore AI, cybersecurity, and emerging technologies, always
+            learning, tinkering, and occasionally breaking things along the way.
+          </p>
+          <div class="pills">
+            <span class="pill" data-pill="python">Python</span>
+            <span class="pill" data-pill="ml">Machine Learning</span>
+            <span class="pill" data-pill="cybersecurity">Cybersecurity</span>
+            <span class="pill" data-pill="ids">IDS</span>
+            <span class="pill" data-pill="linux">Linux</span>
+            <span class="pill" data-pill="cryptocurrency">Cryptocurrency</span>
+          </div>
           <div class="links-row">
             <a
               class="btn btn-outline"
               href="https://github.com/mdmahmudul34"
               target="_blank"
               rel="noopener"
+              >GitHub ↗</a
             >
-              GitHub ↗
-            </a>
-
             <a
               class="btn btn-outline"
-              href="https://linkedin.com/in/mdmahmud34"
+              href="https://www.linkedin.com/in/mdmahmudul34"
               target="_blank"
               rel="noopener"
+              >LinkedIn ↗</a
             >
-              LinkedIn ↗
-            </a>
+            <a
+              class="btn btn-outline"
+              href="https://www.researchgate.net/profile/Md-Mahmudul-Kabir-Himel"
+              target="_blank"
+              rel="noopener"
+              >ResearchGate ↗</a
+            >
+            <a
+              class="btn btn-outline"
+              href="https://www.webofscience.com/wos/author/record/QUT-3210-2026"
+              target="_blank"
+              rel="noopener"
+              >Web of Science ↗</a
+            >
+            <a
+              class="btn btn-outline"
+              href="https://mdmahmudul34.github.io/personal_homepage/"
+              target="_blank"
+              rel="noopener"
+              >Portfolio ↗</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <section class="block">
+        <h2>Firewall traffic monitor, live</h2>
+        <div class="viz-panel">
+          <p class="caption">
+            A simulated packet stream hitting a firewall — each packet is scored
+            against a set of traffic-shape rules (unusual size, odd port, bursty
+            timing), and flagged as normal or malicious in real time. It's a toy
+            version of the kind of anomaly-detection logic behind intrusion
+            detection systems, the same space my thesis work sits in.
+          </p>
+          <div id="firewall-canvas-wrap"></div>
+          <div class="viz-controls">
+            <button id="firewall-reset">reset stream</button>
+            <button id="firewall-speed">speed: 1×</button>
+            <span class="stat-chip"
+              >packets: <span id="firewall-total">0</span></span
+            >
+            <span class="stat-chip"
+              >blocked: <span id="firewall-blocked">0</span></span
+            >
+            <span class="stat-chip"
+              >threat rate: <span id="firewall-rate">–</span></span
+            >
           </div>
         </div>
       </section>
 
       <section class="block">
-        <h2>Skills & Interests</h2>
-
-        <div class="pills">
-          <span class="pill" data-pill="python"> Python </span>
-
-          <span class="pill" data-pill="ai"> AI/ML </span>
-
-          <span class="pill" data-pill="cybersecurity"> Cybersecurity </span>
-
-          <span class="pill" data-pill="opensource"> Open Source </span>
-
-          <span class="pill" data-pill="docker"> Docker </span>
-
-          <span class="pill" data-pill="linux"> Linux </span>
+        <h2>Neural network forward-pass, live</h2>
+        <div class="viz-panel">
+          <p class="caption">
+            A small feedforward network — input, two hidden layers, and an
+            output layer classifying traffic as normal, suspicious, or
+            malicious. Each cycle, a random input vector is pushed through:
+            watch the signal pulses travel edge by edge, node glow track
+            activation strength, and edge thickness/color track weight magnitude
+            (teal/green = positive, red = negative). A simplified picture of the
+            kind of network behind intrusion detection models.
+          </p>
+          <div id="neural-canvas-wrap"></div>
+          <div class="viz-controls">
+            <button id="nn-reset">reshuffle weights</button>
+            <button id="nn-toggle">pause</button>
+            <span class="stat-chip">passes: <span id="nn-passes">0</span></span>
+            <span class="stat-chip"
+              >prediction: <span id="nn-pred">–</span></span
+            >
+            <span class="stat-chip"
+              >confidence: <span id="nn-conf">–</span></span
+            >
+          </div>
         </div>
       </section>
-
-      <section class="block">
-        <h2>Research & Projects</h2>
-
-        <ul class="project-list">
-          <li>
-            <strong>
-              AI-Based Industrial Control System Attack Detection
-            </strong>
-
-            <span>
-              Research project focused on detecting cyber-physical attacks in
-              industrial control systems using machine learning and cross-stage
-              attention architectures.
-            </span>
-          </li>
-
-          <li>
-            <strong> Disaster Recovery Training Management DApp </strong>
-
-            <span>
-              Blockchain-based decentralized application built using Solidity,
-              Ethereum, Truffle, and Ganache.
-            </span>
-          </li>
-
-          <li>
-            <strong> Open Source & Developer Communities </strong>
-
-            <span>
-              Exploring AI, cybersecurity, cloud technologies, and contributing
-              to collaborative open-source projects.
-            </span>
-          </li>
-        </ul>
-      </section>
-
-      <section class="block">
-        <h2>About</h2>
-
-        <p class="profile-bio">
-          Currently exploring the intersection of AI and cybersecurity. My
-          interests include secure machine learning systems, cloud technologies,
-          and building impactful software through collaboration.
-        </p>
-      </section>
     </main>
+
+    <footer class="site-footer">
+      This is my page in the <a href="../../index.html">hacker directory</a> —
+      make your own in a PR.
+    </footer>
+
+    <script src="firewall.js"></script>
+    <script src="neural.js"></script>
+    <script>
+      HDTheme.init();
+    </script>
   </body>
 </html>
