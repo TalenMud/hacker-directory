@@ -1,0 +1,48 @@
+name: Build contributor locations
+
+# contributors/locations.json powers the contributor map. It's rebuilt here,
+# not by contributors themselves, so geocoding only ever happens at build
+# time against Nominatim, never as a third-party call from a visitor's
+# browser.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contributors/**"
+  # So a maintainer can run it on demand.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Two merges close together would otherwise race each other to push. Queue the
+# runs instead of cancelling them, so the second one sees the first one's work.
+concurrency:
+  group: build-locations
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # `ref: main` rather than the commit that triggered the run: a queued run
+      # needs the branch as it is now, not as it was when it was queued.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Rebuild locations.json
+        run: node .github/scripts/build-locations.js
+
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet -- contributors/locations.json; then
+            echo "locations.json already matches the current card.json files."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: rebuild contributor locations" -- contributors/locations.json
+          git push

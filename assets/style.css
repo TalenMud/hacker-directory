@@ -402,6 +402,67 @@ a {
   color: #3a1c2b;
 }
 
+/* ---------- Contributor map ---------- */
+.map-shell {
+  padding-bottom: 4rem;
+}
+
+#map {
+  height: min(65vh, 560px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.map-popup {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-display);
+  min-width: 160px;
+}
+
+.map-popup-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: var(--pill-bg);
+  flex-shrink: 0;
+}
+
+.map-popup-name {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.map-popup-location {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0.1rem 0 0.3rem;
+}
+
+.map-popup-link {
+  font-size: 0.82rem;
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.map-popup-link:hover {
+  text-decoration: underline;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--bg-raised);
+  color: var(--text-primary);
+}
+
+.leaflet-container {
+  border-radius: var(--radius-lg);
+  font-family: var(--font-display);
+}
+
 /* ---------- Directory grid ---------- */
 .grid {
   display: grid;

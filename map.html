@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hacker directory</title>
+  <title>hacker directory — map</title>
   <meta name="description"
-    content="A community-built directory of hackers, builders, and students — one card, one page per person." />
+    content="Roughly where hacker directory contributors are from — opt-in, city/country level only." />
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👾</text></svg>" />
   <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="assets/theme.js"></script>
 </head>
 
@@ -39,47 +40,19 @@
   </nav>
 
   <header class="hero wrap">
-    <h1>Hackers.<br /><span class="highlight">Not spectators.</span></h1>
+    <h1>Where hackers <span class="highlight">hack from.</span></h1>
     <p>
-      A directory built by the people in it. Every card below is a pull request —
-      fork the repo, claim your page, and ship something weird with it.
+      Every pin is opt-in — a contributor added a city or country to their <code>card.json</code>.
+      Nothing is inferred or geocoded from GitHub, and nobody without a pin is shown here at all.
     </p>
-    <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
-      <a class="btn btn-primary" href="CONTRIBUTING.md">Add your card →</a>
-      <a class="btn btn-outline" href="https://github.com/TalenMud/hacker-directory" target="_blank" rel="noopener">View
-        on GitHub</a>
-    </div>
-    <div class="hero-stats" id="hero-stats">
-      <div>
-        <div class="num" id="stat-count">–</div>
-        <div class="label">Contributors</div>
-      </div>
-      <div>
-        <div class="num" id="stat-tags">–</div>
-        <div class="label">Tags</div>
-      </div>
-      <div>
-        <div class="num">∞</div>
-        <div class="label">Vibes</div>
-      </div>
-    </div>
   </header>
 
   <main class="wrap">
-    <div class="controls">
-      <input class="search-input" id="search" type="text" placeholder="Search by name, tag, or bio…"
-        autocomplete="off" />
-    </div>
-    <div class="controls" id="tag-filters"></div>
-
-    <div class="grid" id="grid">
-      <div class="skeleton"></div>
-      <div class="skeleton"></div>
-      <div class="skeleton"></div>
-      <div class="skeleton"></div>
-    </div>
-    <div class="empty-state" id="empty-state" style="display:none;">
-      No hackers match that search. <a href="CONTRIBUTING.md">Be the first?</a>
+    <div class="map-shell">
+      <div id="map"></div>
+      <div class="empty-state" id="map-empty" style="display:none;">
+        No pins yet. <a href="CONTRIBUTING.md">Add a <code>location</code> to your card</a> to be the first?
+      </div>
     </div>
   </main>
 
@@ -88,7 +61,8 @@
     <a href="https://github.com/TalenMud/hacker-directory" target="_blank" rel="noopener">Source on GitHub</a>
   </footer>
 
-  <script src="assets/directory.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/map.js"></script>
   <script>HDTheme.init();</script>
 </body>
 
