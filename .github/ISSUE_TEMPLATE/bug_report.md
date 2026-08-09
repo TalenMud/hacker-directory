@@ -29,3 +29,7 @@ open the issue anyway — worst case we close it, no harm done.
 ## Screenshot
 
 <!-- Drag an image in here if it helps show the problem. Delete this section if not relevant. -->
+
+## Good first issue?
+
+<!-- Do you think this could be tackled by someone doing their first-ever PR here? Doesn't need to be certain, just your gut sense. -->

@@ -22,3 +22,7 @@ sketch is enough to start a discussion.
 ## Possible approach
 
 <!-- Optional. Any thoughts on how this could work, even a rough one. -->
+
+## Good first issue?
+
+<!-- Do you think this could be tackled by someone doing their first-ever PR here? Doesn't need to be certain, just your gut sense. -->
