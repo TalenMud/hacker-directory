@@ -1,7 +1,10 @@
 name: Sync contributors manifest
 
-# Keeps contributors/manifest.json in step with the folders on main, so a
-# typo'd or forgotten entry doesn't quietly drop someone from the homepage.
+# Keeps contributors/manifest.json and contributors/locations.json in step
+# with the folders on main, so a typo'd or forgotten entry doesn't quietly
+# drop someone from the homepage, and a new location field gets geocoded
+# without a second build run.
+#
 # The push below uses GITHUB_TOKEN, and pushes made with that token don't
 # start new workflow runs, so this doesn't retrigger itself.
 
@@ -36,14 +39,18 @@ jobs:
       - name: Rebuild manifest.json
         run: node .github/scripts/build-manifest.js
 
+      - name: Rebuild locations.json
+        run: node .github/scripts/build-locations.js
+
       - name: Commit if anything changed
         run: |
-          if git diff --quiet -- contributors/manifest.json; then
-            echo "Manifest already matches the contributor folders."
+          if git diff --quiet -- contributors/manifest.json contributors/locations.json; then
+            echo "Manifest and locations already match the contributor folders."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: sync contributors manifest" -- contributors/manifest.json
+          git add contributors/manifest.json contributors/locations.json
+          git commit -m "chore: sync contributors manifest and locations"
           git push
