@@ -128,6 +128,7 @@
       const matchesTag =
         !activeTag ||
         (p.tags || []).some((t) => t.toLowerCase().trim() === activeTag.toLowerCase().trim());
+      const matchesTag = !activeTag || (p.tags || []).some((t) => t.toLowerCase() === activeTag.toLowerCase());
       if (!matchesTag) return false;
       if (!query) return true;
       const haystack = [p.name, p.role, p.university, p.company, p.bio, ...(p.tags || [])]
@@ -166,6 +167,17 @@
       .sort((a, b) => b.count - a.count)
       .slice(0, 12)
       .map((item) => item.display);
+    const tagCounts = {};
+    const displayTag = {}; // lowercase → first-seen casing
+    people.forEach((p) => (p.tags || []).forEach((t) => {
+      const key = t.toLowerCase();
+      tagCounts[key] = (tagCounts[key] || 0) + 1;
+      if (!displayTag[key]) displayTag[key] = t;
+    }));
+    const topTags = Object.entries(tagCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 12)
+      .map(([key]) => displayTag[key]);
 
     const allPill = document.createElement("button");
     allPill.className = "filter-pill active";
@@ -214,6 +226,7 @@
     people.forEach((p) =>
       (p.tags || []).forEach((t) => t && uniqueTags.add(t.trim().toLowerCase()))
     );
+    people.forEach((p) => (p.tags || []).forEach((t) => uniqueTags.add(t.toLowerCase())));
     document.getElementById("stat-tags").textContent = uniqueTags.size;
 
     const rerender = () => render(people, filterState);

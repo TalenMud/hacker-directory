@@ -1,80 +1,297 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name — hacker directory</title>
-  <meta name="description" content="Your personal page in the hacker directory." />
-  <!--
-    Hey! This is YOUR page. The stylesheet below gives you the site's
-    dark/light theme + fonts for free, but you don't have to use any of it —
-    delete the whole <body> and build something completely different if
-    you want. Games, art, a terminal, a blog, whatever. Go wild.
-  -->
-  <link rel="stylesheet" href="../../assets/style.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="../../assets/theme.js"></script>
+  <title>L3viath4n // DEV · SEC · GG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap"
+    rel="stylesheet"/>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./index.js" defer></script>
 </head>
 
 <body>
-  <nav class="nav">
-    <a class="nav-brand" href="../../index.html">
-      <span class="dot"></span>
-      hacker directory
-    </a>
-    <div class="nav-links">
-      <a href="../../index.html">← back to directory</a>
-      <button id="theme-toggle" aria-label="Toggle theme">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4" />
-          <path
-            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-        </svg>
-      </button>
-    </div>
+  <nav>
+    <a class="nav-logo" href="#hero">l3viath4n<span>.</span>365<span>//</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <main class="wrap" style="padding-top: 3rem; padding-bottom: 4rem;">
-    <h1 style="font-family: var(--font-goofy); font-size: 2.3rem; margin-bottom: 0.4rem;">Your Name</h1>
-    <p style="color: var(--text-secondary); margin-top: 0;">Your role · Your school or company · @your-github</p>
+  <section id="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-    <p style="max-width: 620px; line-height: 1.6; color: var(--text-secondary);">
-      Write a bit about yourself here. What are you building? What are you
-      learning? What do you want people to click through to see?
-    </p>
+    <div class="hero-content fade-up visible">
+      <div class="hero-tag">System Online · v2.0.26</div>
 
-    <div class="pills" style="margin: 1.2rem 0;">
-      <span class="pill" style="--pill-color:#3ef2a1">Tag One</span>
-      <span class="pill" style="--pill-color:#4d8bff">Tag Two</span>
-      <span class="pill" style="--pill-color:#ff5cb3">Tag Three</span>
-    </div>
+      <h1 class="hero-name">
+        Michael<br><span class="accent">Oji</span>
+      </h1>
 
-    <div style="display:flex; gap:0.7rem; flex-wrap: wrap;">
-      <a class="btn btn-outline" href="https://github.com/your-github" target="_blank" rel="noopener">GitHub ↗</a>
-      <a class="btn btn-outline" href="https://your-site.example.com" target="_blank" rel="noopener">Website ↗</a>
-    </div>
+      <div class="hero-roles">
+        <span class="role-chip dev">⌨ Full-Stack Developer</span>
+        <span class="role-chip sec">🛡 Security Analyst</span>
+        <span class="role-chip game">🎮 Competitive Gamer</span>
+      </div>
 
-    <section style="margin-top: 3rem;">
-      <h2 style="font-family: var(--font-goofy); font-size: 1.45rem;">Put anything here</h2>
-      <p style="color: var(--text-secondary); max-width: 620px; line-height: 1.6;">
-        This section is yours. Some ideas: a project list, a p5.js sketch, an
-        embedded game, a terminal-style intro, a photo gallery of your desk
-        setup. Check out
-        <a href="../talen/index.html" style="color: var(--accent-blue);">Talen's page</a>
-        for an example of a live data-visualisation demo built right into a
-        profile page.
+      <p class="hero-bio">
+        I <strong>build</strong> robust web systems, <strong>analyze</strong> security vulnerabilities, and
+        <strong>climb leaderboards</strong>. Biochemistry graduate turned tech polymath.
       </p>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    This is my page in the <a href="../../index.html">hacker directory</a> — make your own in a PR.
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-ghost">Let's Talk</a>
+      </div>
+    </div>
+
+    <div class="hero-status">
+      <span><span class="status-dot"></span>Available for work</span>
+      <span>Uyo, Nigeria</span>
+      <span id="clock">00:00:00</span>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-header fade-up">
+      <span class="section-num"> //</span>
+      <h2 class="section-title">ABOUT</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p>I am a <strong>Biochemistry graduate</strong> pivoting into the heart of the digital frontier. My background
+          in science gave me the analytical foundation; my passion for technology gave me the tools to build.</p>
+        <p>Currently, I focus on <strong>Full-Stack development</strong> with a heavy emphasis on
+          <strong>Cybersecurity</strong>. I don't just write code; I architect it with a "security-first" mindset,
+          ensuring every deployment is as resilient as it is functional.
+        </p>
+        <p>When the terminal is closed, you'll find me on the global leaderboards of <strong>CODM</strong> or
+          <strong>Rainbow Six Mobile</strong>. Competitive gaming isn't a distraction—it's where I honed the
+          high-pressure decision-making and mechanical precision I bring to every sprint.
+        </p>
+
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="t-dot r"></div>
+            <div class="t-dot y"></div>
+            <div class="t-dot g"></div>
+            <span class="terminal-title">L3viath4n-365</span>
+          </div>
+          <div class="terminal-body">
+            <div class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">whoami</span></div>
+            <div class="t-line t-out"><span class="t-val">Michael Oji</span>: <span class="t-key">DevSecOps
+                Aspirant</span></div>
+            <div class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">ls certifications/</span></div>
+            <div class="t-line t-out">CompTIA_Security_Plus (In Progress)</div>
+            <div class="t-line"><span class="t-prompt">$ </span><span class="cursor"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-stats fade-up">
+        <div class="stat-card g">
+          <div class="stat-num">12+</div>
+          <div class="stat-label">Web Projects</div>
+        </div>
+        <div class="stat-card c">
+          <div class="stat-num">15-month</div>
+          <div class="stat-label">Career Roadmap</div>
+        </div>
+        <div class="stat-card o">
+          <div class="stat-num">Top</div>
+          <div class="stat-label">Global Leaderboard (CODM)</div>
+        </div>
+        <div class="stat-card p">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Lines of code Written</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-header fade-up">
+      <span class="section-num"> //</span>
+      <h2 class="section-title">SKILLS</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-group fade-up">
+        <div class="skill-group-icon">⌨</div>
+        <div class="skill-group-title">Web Development</div>
+        <div class="skill-tags">
+          <span class="tag">HTML5/CSS3</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">JavaScript (ES6+)</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Express.js</span>
+          <span class="tag">EJS</span>
+          <span class="tag">Git/GitHub</span>
+          <span class="tag">Version Control</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">SQL</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">OAuth & Authsec</span>
+        </div>
+      </div>
+
+      <div class="skill-group sec-group fade-up">
+        <div class="skill-group-icon">🛡</div>
+        <div class="skill-group-title">Cybersecurity</div>
+        <div class="skill-tags">
+          <span class="tag">Network Security</span>
+          <span class="tag">OWASP Top 10</span>
+          <span class="tag">Linux SysAdmin</span>
+          <span class="tag">Bash Scripting</span>
+          <span class="tag">Nmap</span>
+          <span class="tag">Wireshark</span>
+        </div>
+      </div>
+
+      <div class="skill-group game-group fade-up">
+        <div class="skill-group-icon">🎮</div>
+        <div class="skill-group-title">Gaming & Tools</div>
+        <div class="skill-tags">
+          <span class="tag">OBS Studio</span>
+          <span class="tag">Python</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">Git/GitHub</span>
+          <span class="tag">Hardware Optimization</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header fade-up">
+      <span class="section-num"> //</span>
+      <h2 class="section-title">PROJECTS</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card fade-up">
+        <div class="project-type dev">⌨ Brand Identity</div>
+        <div class="project-title">Leviathan Gaming</div>
+        <p class="project-desc">Developing a comprehensive gaming and streaming brand. Focused on high-fidelity content
+          creation and community building within the mobile FPS scene.</p>
+        <div class="project-stack">
+          <span class="tag">Branding</span>
+          <span class="tag">Content Strategy</span>
+          <span class="tag">Streaming Gear</span>
+        </div>
+      </div>
+
+      <div class="project-card sec-card fade-up">
+        <div class="project-type sec">🛡 Automation</div>
+        <div class="project-title">Stack Sentinel</div>
+        <p class="project-desc">A YouTube automation initiative focused on tech-stacks, security insights, and developer
+          workflows. Bridging the gap between coding and security education.</p>
+        <div class="project-stack">
+          <span class="tag">Python</span>
+          <span class="tag">Video Engineering</span>
+          <span class="tag">SEO</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-type dev">⌨ Web Dev</div>
+        <div class="project-title">Portfolio v2</div>
+        <p class="project-desc">A minimalist, terminal-themed portfolio designed for speed and responsiveness. Built
+          with clean, vanilla code to showcase front-end fundamentals.</p>
+        <div class="project-stack">
+          <span class="tag">HTML</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/L3viath4n-365">→ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-type dev">⌨ Web Dev</div>
+        <div class="project-title">Defining Express RESTful Routes</div>
+        <p class="project-desc">A challenge to build a clean, RESTful Express & EJS dashboard designed to log, monitor,
+          and track the
+          real-time health scores and build statuses of local developer projects with data persistence.</p>
+        <div class="project-stack">
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Express.js</span>
+          <span class="tag">EJS</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/L3viath4n-365/EJS--RESTful-ROUTES-and-git-practice-challenge-from-gemini">→
+            GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-header fade-up">
+      <span class="section-num"> //</span>
+      <h2 class="section-title">EXPERIENCE</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-date">2024 — PRESENT</div>
+        <div class="timeline-role">Self-Directed Technical Training</div>
+        <div class="timeline-company">Full-Stack Web development & cyberSecurity Focus</div>
+        <p class="timeline-desc">Executing a 15-month roadmap covering CompTIA Security+ prep and deep-dives into web
+          development with Node.js/Express and React. Building a portfolio of 10+ scalable web applications.</p>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-date">2024</div>
+        <div class="timeline-role">Biochemistry Graduate</div>
+        <div class="timeline-company">Gregory University, Uturu, Abia State, Nigeria</div>
+        <p class="timeline-desc">Applied scientific methodology to complex problem-solving. Transitioned analytical
+          skills from laboratory research to digital systems and security analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-inner fade-up">
+      <h2 class="contact-heading">Let's<br><span class="accent">Connect.</span></h2>
+      <p class="contact-sub">Open to work, collabs, and high-tier gaming sessions. Based in Uyo, Nigeria.</p>
+
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:michaelekeoma01@gmail.com">✉ Email</a>
+        <a class="contact-link" href="https://github.com/L3viath4n-365" target="_blank" rel="noopener">⌥ GitHub</a>
+        <a class="contact-link" href="https://linkedin.com/in/michael-oji-90525a374/" target="_blank" rel="noopener">◈
+          LinkedIn</a>
+      </div>
+
+      <!-- i'll add a resume later, i promise..!! -->
+
+      <!-- <a href="Michael's resume.pdf" class="btn btn-primary" download>↓ Download Resume</a> -->
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 <a href="https://github.com/L3viath4n-365">L3viath4n-365</a> — built with ☕ & back pain</p>
+    <p class="footer-right">DEV · SEC · GG</p>
   </footer>
 
   <script>HDTheme.init();</script>

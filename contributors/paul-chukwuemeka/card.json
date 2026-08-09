@@ -1,0 +1,11 @@
+{
+  "name": "Paul Chukwuemeka",
+  "role": "CS Student, Fullstack Developer, and Open Source Enthusiast",
+  "university": "university of the people",
+  "github": "paul-chukwuemeka",
+  "bio": "I am a Computer Science student at the University of the People, passionate about web development and open source contributions. I enjoy building scalable web applications and exploring new technologies.",
+  "tags": ["Python", "JavaScript", "NextJs", "React", "NodeJs", "Open Source"],
+  "links": {
+    "website": "https://maskeddev.vercel.app/"
+  }
+}

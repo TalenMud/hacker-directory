@@ -1,0 +1,11 @@
+{
+  "name": "Wilfred Mugacha",
+  "role": "Backend Developer",
+  "university": "China Agricultural University",
+  "github": "Wmugacha",
+  "bio": "Backend Engineer specializing in Python, Django, scalable RESTful APIs, and asynchronous architectures.",
+  "tags": ["Python", "Django", "PostgreSQL", "Docker", "Redis", "Celery"],
+  "links": {
+    "website": "https://github.com/Wmugacha"
+  }
+}

@@ -1,11 +1,11 @@
 {
-  "name": "Michael",
-  "role": "Full-stack Dev",
-  "university": "Done w/ that shii",
+  "name": "Michael Oji",
+  "role": "Full-stack Deveveloper & Cybersecurity Enthusiast",
+  "university": "Gregory University, Abia State, Nigeria",
   "github": "l3viath4n-365",
-  "bio": "I don't i can't build yet, but i'm studying cybersecurity",
-  "tags": ["Python", "JavaScript", "PostgreSQL"],
+  "bio": "Analytical and detail-oriented developer with a background in Biochemistry, currently specializing in Full-Stack Web Development and Cybersecurity. Proficient in building responsive front-end interfaces and secure back-end systems. Founder of The L3viath4n Brand, a streaming and technical brand focused on high-performance mobile hardware and competitive strategy",
+  "tags": ["Python", "JavaScript", "TypeScript", "Postgres-Express-EJS-Node Stack", "Cybersecurity"],
   "links": {
-    "website": "No!"
+    "website": null
   }
 }

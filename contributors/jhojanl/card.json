@@ -1,0 +1,12 @@
+{
+  "name": "Jhojan Lerma",
+  "role": "Software Developer | Full Stack Web Developer | UX/UI Designer",
+  "university": "Cibertec",
+  "github": "JhojanL",
+  "bio": "Hello! I'm Jhojan Lerma, a passionate software developer with a strong focus on full-stack web development and UX/UI design. I enjoy creating innovative solutions and user-friendly interfaces that enhance the digital experience. With a background in computer science and a keen eye for design, I strive to bridge the gap between functionality and aesthetics in every project I undertake.",
+  "tags": ["Python", "TypeScript", "Golang", "SQL"],
+  "links": {
+    "github": "https://github.com/JhojanL",
+    "linkedin": "https://www.linkedin.com/in/jhojan-andres-lerma-achoma/"
+  }
+}

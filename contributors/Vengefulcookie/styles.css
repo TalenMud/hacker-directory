@@ -1,6 +1,7 @@
 /*
-  Mahmudul's personal page styles.
-  This file only affects contributors/mdmahmudul34/index.html — nothing site-wide.
+  Talen's personal page styles.
+  This file only affects contributors/talen/index.html — nothing site-wide.
+  Copy whatever you like from here into your own contributors/<you>/styles.css.
 */
 
 .profile-hero {
@@ -50,21 +51,17 @@ section.block h2::before {
   width: 8px;
   height: 8px;
   border-radius: 2px;
-  background: linear-gradient(135deg, #ff5c5c, #2496ed);
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
 }
 [data-theme="light"] section.block h2::before {
-  background: linear-gradient(135deg, #d94f4f, #1d78c9);
+  background: linear-gradient(135deg, var(--accent-pink-soft), var(--accent-lilac));
 }
-
-/* Links row — 5 links, wraps cleanly instead of stacking */
 .links-row {
   display: flex;
   gap: 0.7rem;
   flex-wrap: wrap;
-  margin-top: 0.9rem;
-  max-width: 640px;
+  margin-top: 0.5rem;
 }
-
 .viz-panel {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -77,28 +74,18 @@ section.block h2::before {
   line-height: 1.6;
   margin: 0 0 1rem;
 }
-#firewall-canvas-wrap,
-#neural-canvas-wrap {
+#mcmc-canvas-wrap {
   display: flex;
   justify-content: center;
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border);
   background: #000;
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
 }
-#firewall-canvas-wrap canvas,
-#neural-canvas-wrap canvas {
-  width: 100%;
+#mcmc-canvas-wrap canvas {
   max-width: 100%;
   height: auto;
   display: block;
-}
-.viz-panel {
-  min-width: 0;
-  overflow-x: hidden;
 }
 .viz-controls {
   display: flex;
@@ -120,12 +107,10 @@ section.block h2::before {
   background: var(--bg-raised);
   color: var(--text-primary);
   cursor: pointer;
-  transition:
-    border-color 0.15s ease,
-    transform 0.15s ease;
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 .viz-controls button:hover {
-  border-color: #2496ed;
+  border-color: var(--accent-green);
   transform: translateY(-1px);
 }
 .stat-chip {
@@ -134,44 +119,45 @@ section.block h2::before {
   padding: 0.3rem 0.7rem;
   border-radius: 8px;
 }
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+.project-list li {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.2rem;
+}
+.project-list strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.project-list span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
 
 /*
-  Tag pill colors — keyed by data-pill on each <span class="pill" data-pill="...">.
+  These map this page's specific tag pills to colors — keyed by the
+  data-pill attribute on each <span class="pill" data-pill="..."> below.
+  If you copy this pattern, swap in your own tags and hex values; a
+  data-pill value that doesn't have a matching rule just falls back to
+  plain text, it won't inherit Talen's colors.
 */
-.pill[data-pill="python"] {
-  --pill-color: #3ef2a1;
-}
-.pill[data-pill="ml"] {
-  --pill-color: #4d8bff;
-}
-.pill[data-pill="cybersecurity"] {
-  --pill-color: #ff5c5c;
-}
-.pill[data-pill="ics"] {
-  --pill-color: #ff9f43;
-}
-.pill[data-pill="docker"] {
-  --pill-color: #2496ed;
-}
-.pill[data-pill="opensource"] {
-  --pill-color: #33d9c1;
-}
+.pill[data-pill="python"] { --pill-color: #3ef2a1; }
+.pill[data-pill="cpp"] { --pill-color: #4d8bff; }
+.pill[data-pill="cuda"] { --pill-color: #ff5cb3; }
+.pill[data-pill="react"] { --pill-color: #ffd23f; }
+.pill[data-pill="oss"] { --pill-color: #33d9c1; }
+.pill[data-pill="bayes"] { --pill-color: #a56dff; }
 
-[data-theme="light"] .pill[data-pill="python"] {
-  --pill-color: #2fb894;
-}
-[data-theme="light"] .pill[data-pill="ml"] {
-  --pill-color: #3fa9e0;
-}
-[data-theme="light"] .pill[data-pill="cybersecurity"] {
-  --pill-color: #d94f4f;
-}
-[data-theme="light"] .pill[data-pill="ics"] {
-  --pill-color: #d9812f;
-}
-[data-theme="light"] .pill[data-pill="docker"] {
-  --pill-color: #1d78c9;
-}
-[data-theme="light"] .pill[data-pill="opensource"] {
-  --pill-color: #2fa88f;
-}
+[data-theme="light"] .pill[data-pill="python"] { --pill-color: #2fb894; }
+[data-theme="light"] .pill[data-pill="cpp"] { --pill-color: #3fa9e0; }
+[data-theme="light"] .pill[data-pill="cuda"] { --pill-color: #e0538c; }
+[data-theme="light"] .pill[data-pill="react"] { --pill-color: #e08a3f; }
+[data-theme="light"] .pill[data-pill="oss"] { --pill-color: #2fa88f; }
+[data-theme="light"] .pill[data-pill="bayes"] { --pill-color: #8a63e6; }
