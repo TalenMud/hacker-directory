@@ -7,6 +7,12 @@ pull request. No sign-up form, no database, no admin panel. You fork the
 repo, add a folder with your name on it, and your card shows up on the
 grid.
 
+<p align="center">
+  <img src="assets/readme-grid-light.svg" alt="Hacker directory homepage with a pastel grid of contributor cards" width="800">
+</p>
+
+⭐ **If this is the kind of project you'd like to see more of, drop a star — it helps other first-timers find it.**
+
 Each contributor gets:
 
 - **A card** on the main directory grid — name, role, tags, bio, a link
@@ -28,6 +34,26 @@ you can hack on."
 </div>
 
 <br />
+
+## What it looks like
+
+Responsive grid, dark mode that follows your system preference (with a
+manual override), and tag filters that update the URL so you can share a
+filtered view.
+
+<p align="center">
+  <img src="assets/readme-grid-light.svg" alt="Light mode grid view" width="49%">
+  &nbsp;
+  <img src="assets/readme-grid-dark.svg" alt="Dark mode grid view" width="49%">
+</p>
+
+### Search and tag filters
+
+Search by name, tag, or bio. Click any tag pill to narrow the grid.
+
+<p align="center">
+  <img src="assets/readme-tag-filters.svg" alt="Tag filter active with three matching contributors" width="800">
+</p>
 
 ## How it works
 
