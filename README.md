@@ -55,6 +55,21 @@ Search by name, tag, or bio. Click any tag pill to narrow the grid.
   <img src="assets/readme-tag-filters.svg" alt="Tag filter active with three matching contributors" width="800">
 </p>
 
+## Getting started
+
+Adding your card is one fork, one folder, one JSON file, one pull
+request. The full walkthrough lives in [CONTRIBUTING.md](CONTRIBUTING.md)
+— the tape below shows the happy path in ~30 seconds:
+
+<p align="center">
+  <img src="assets/contribute.gif" alt="Terminal recording of the contributor setup flow: clone, copy the template folder, edit card.json, commit, push" width="800">
+</p>
+
+The tape itself is scripted at
+[`.github/tapes/contribute.tape`](.github/tapes/contribute.tape) — edit
+it and re-run `vhs .github/tapes/contribute.tape` if the steps ever
+change.
+
 ## How it works
 
 ```
