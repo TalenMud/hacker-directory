@@ -1,11 +1,27 @@
 {
-  "name": "Talen Mudaly",
-  "role": "CS Student, Stats enthusiast - Noob Open Source Contributor",
-  "university": "The University of Manchester",
-  "github": "TalenMud",
-  "bio": "I like Stats, Software and Skittles",
-  "tags": ["Python", "React", "Data Science"],
-  "links": {
-    "website": "https://talenmud.github.io"
-  }
+"name": "Lucan Akpati",
+"role": "Computer Science Student • AI/ML Enthusiast • Full-Stack Developer",
+"university": "The University of Saskatchewan",
+"github": "Akpati-Lucan",
+"bio": "CS student passionate about AI, software engineering, and turning ideas into useful applications. I enjoy building full-stack systems, experimenting with machine learning, and exploring research problems in AI. Currently learning, building, breaking things, and occasionally making them work again.",
+
+"tags": [
+"Python",
+"JavaScript",
+"TypeScript",
+"Node.js",
+"React",
+"Next.js",
+"Flutter",
+"PyTorch",
+"Machine Learning",
+"AI",
+"Data Science",
+"Backend Development"
+],
+
+"links": {
+"linkedin": "https://www.linkedin.com/in/lucan-akpati/",
+"github": "https://github.com/Akpati-Lucan"
+}
 }
