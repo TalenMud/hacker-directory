@@ -200,13 +200,54 @@
     const grid = document.getElementById("grid");
     const filterState = { query: "", tag: null, visibleCount: PAGE_SIZE };
 
+    // Welcome overlay handling: synchronize data fetch with a minimum display timer
+    const welcome = document.getElementById("welcome-overlay");
+    const skipBtn = document.getElementById("skip-intro");
+    const MIN_MS = 4000; // show the intro for at least this long (ms)
+
     let people = [];
-    try {
-      people = await loadContributors();
-    } catch (e) {
-      grid.innerHTML = `<div class="empty-state">Couldn't load the directory right now. Try refreshing?</div>`;
-      console.error(e);
-      return;
+
+    // fetch promise (resolves even on error, setting people appropriately)
+    const fetchPromise = loadContributors()
+      .then((data) => {
+        people = data;
+        return data;
+      })
+      .catch((e) => {
+        console.error(e);
+        // show an inline error state; keep people as an empty array
+        grid.innerHTML = `<div class="empty-state">Couldn't load the directory right now. Try refreshing?</div>`;
+        return [];
+      });
+
+    // timer promise that can be resolved early by "Skip intro"
+    let timerId;
+    let timerResolve;
+    const timerPromise = new Promise((resolve) => {
+      timerResolve = resolve;
+      timerId = setTimeout(resolve, MIN_MS);
+    });
+
+    if (skipBtn) {
+      skipBtn.addEventListener("click", () => {
+        if (timerId) {
+          clearTimeout(timerId);
+          timerId = null;
+        }
+        if (timerResolve) timerResolve();
+        skipBtn.disabled = true;
+      });
+    }
+
+    // Wait for both data and the timer to complete
+    await Promise.all([fetchPromise, timerPromise]);
+
+    // Fade out the welcome overlay smoothly
+    if (welcome) {
+      welcome.classList.add("welcome-hidden");
+      setTimeout(() => {
+        if (welcome && welcome.parentNode) welcome.parentNode.removeChild(welcome);
+      }, 900);
     }
 
     document.getElementById("stat-count").textContent = people.length;
