@@ -113,6 +113,7 @@ Open `contributors/your-username/card.json`. It looks like this:
   "github": "your-github-username",
   "bio": "One or two sentences about what you build, what you're learning, or what you're into.",
   "tags": ["Python", "JavaScript", "Your Tag Here"],
+  "location": "",
   "links": {
     "website": "https://your-site.example.com"
   }
@@ -130,6 +131,7 @@ A filled-in example:
   "github": "ada-lovelace",
   "bio": "Writing the first algorithm intended for a machine. Into analytical engines and punch cards.",
   "tags": ["Maths", "Algorithms", "History of Computing"],
+  "location": "London, UK",
   "links": {
     "website": "https://adalovelace.dev"
   }
@@ -138,6 +140,15 @@ A filled-in example:
 
 **Required fields:** `name`, `github`, `bio`, `tags` — the site won't
 build your card without these. Everything else is optional.
+
+**About `location`:** same spirit as `bio` — completely optional, and
+freeform text, not a real address lookup. Leave it as `""` (or delete the
+line) if you'd rather not share where you are, and you just won't show up
+on the [contributor map](map.html). If you do set it, keep it coarse —
+city or country is the idea (`"Cardiff, UK"`, `"Kenya"`), not a street
+address or exact coordinates. It gets turned into an approximate pin by a
+workflow that runs after your PR merges, not by anything that runs in
+another visitor's browser.
 
 **A note on JSON:** every line except the last one inside `{ }` needs a
 comma at the end. Text needs double quotes `"like this"`. If you're
