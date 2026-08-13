@@ -14,6 +14,19 @@
 </head>
 
 <body>
+  <div id="welcome-overlay" role="dialog" aria-label="Welcome to Hacker Directory" aria-hidden="false">
+    <div class="welcome-card" role="document">
+      <h2 class="welcome-title">Welcome to the <span class="accent-glow">Hacker Directory</span></h2>
+      <p class="welcome-sub">A community-built directory of hackers, students, and builders — every entry is a pull request. Explore pages, projects, and people who make this project alive.</p>
+      <div class="welcome-actions" style="margin-top:1.2rem; display:flex; gap:0.6rem; justify-content:center; align-items:center;">
+        <div id="welcome-loader" class="welcome-loader" aria-hidden="true">
+          <div class="spinner" aria-hidden="true"></div>
+        </div>
+        <button id="skip-intro" class="btn btn-outline" aria-label="Skip intro">Skip intro</button>
+      </div>
+      <div class="welcome-foot" style="margin-top:0.9rem; color:var(--text-muted); font-size:0.92rem;">Quick tip: fork the repo and add your card in <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.</div>
+    </div>
+  </div>
   <nav class="nav">
     <a class="nav-brand" href="index.html">
       <span class="dot"></span>
