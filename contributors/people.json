@@ -1653,5 +1653,18 @@
     "links": {
       "website": "https://github.com/vedant1100"
     }
+  },
+  {
+    "username": "FatimaNadeem7",
+    "name": "Fatima Nadeem",
+    "role": "Data Science undergrad",
+    "university": "Punjab University of Information and Technology, Lahore",
+    "github": "FatimaNadeem7",
+    "bio": "I like golden retrievers",
+    "tags": [
+      "Python",
+      "React",
+      "Data Science"
+    ]
   }
 ]
