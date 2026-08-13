@@ -163,6 +163,16 @@
       tagCounts[key] = (tagCounts[key] || 0) + 1;
       if (!displayTag[key]) displayTag[key] = t;
     }));
+  
+  // Simple debounce helper: delays `fn` until `wait` ms after the last call.
+  function debounce(fn, wait) {
+    let t = null;
+    return function (...args) {
+      const ctx = this;
+      if (t) clearTimeout(t);
+      t = setTimeout(() => fn.apply(ctx, args), wait);
+    };
+  }
     const topTags = Object.entries(tagCounts)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 12)
@@ -222,6 +232,16 @@
       filterState.query = search.value;
       filterState.visibleCount = PAGE_SIZE; // #150: reset pagination on new search
       rerender();
+    });
+    // Debounce the search input so filtering only runs after the user pauses typing.
+    const debouncedSearch = debounce((value) => {
+      filterState.query = value;
+      filterState.visibleCount = PAGE_SIZE; // #150: reset pagination on new search
+      rerender();
+    }, 200); // 200ms is a good middle-ground between responsiveness and work
+
+    search.addEventListener("input", () => {
+      debouncedSearch(search.value);
     });
 
     const loadMoreBtn = document.getElementById("load-more");
