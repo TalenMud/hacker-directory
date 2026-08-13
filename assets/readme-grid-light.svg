@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="ui-sans-serif, system-ui, sans-serif" role="img" aria-label="Hacker directory homepage in light mode — pastel grid of contributor cards">
+  <defs>
+    <filter id="grain" x="0" y="0">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 0.025 0"/>
+    </filter>
+    <clipPath id="frame"><rect width="800" height="500" rx="14"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <!-- Notebook paper background -->
+    <rect width="800" height="500" fill="#f7ecdf"/>
+    <rect width="800" height="500" fill="#f7ecdf" filter="url(#grain)"/>
+
+    <!-- Nav bar -->
+    <rect x="0" y="0" width="800" height="56" fill="#fffaf3"/>
+    <line x1="0" y1="56" x2="800" y2="56" stroke="#ecdcc8"/>
+    <circle cx="36" cy="28" r="6" fill="#ff5252"/>
+    <text x="52" y="33" font-size="14" font-weight="600" fill="#2e2320">hacker directory</text>
+    <text x="700" y="33" font-size="12" fill="#6b564e">add your card</text>
+    <text x="765" y="33" font-size="12" fill="#6b564e">github</text>
+
+    <!-- Hero -->
+    <text x="400" y="120" text-anchor="middle" font-size="32" font-weight="700" fill="#2e2320">Hackers.</text>
+    <text x="400" y="156" text-anchor="middle" font-size="32" font-weight="700" fill="#ff5252">Not spectators.</text>
+    <text x="400" y="186" text-anchor="middle" font-size="12" fill="#6b564e">A directory built by the people in it. Every card below is a pull request.</text>
+
+    <!-- Hero stats -->
+    <g transform="translate(280, 210)">
+      <rect width="60" height="48" rx="6" fill="#fffaf3" stroke="#ecdcc8"/>
+      <text x="30" y="22" text-anchor="middle" font-size="16" font-weight="700" fill="#2e2320">47</text>
+      <text x="30" y="38" text-anchor="middle" font-size="9" fill="#9c8579">Contributors</text>
+    </g>
+    <g transform="translate(350, 210)">
+      <rect width="60" height="48" rx="6" fill="#fffaf3" stroke="#ecdcc8"/>
+      <text x="30" y="22" text-anchor="middle" font-size="16" font-weight="700" fill="#2e2320">83</text>
+      <text x="30" y="38" text-anchor="middle" font-size="9" fill="#9c8579">Tags</text>
+    </g>
+    <g transform="translate(420, 210)">
+      <rect width="60" height="48" rx="6" fill="#fffaf3" stroke="#ecdcc8"/>
+      <text x="30" y="22" text-anchor="middle" font-size="16" font-weight="700" fill="#2e2320">12.4k</text>
+      <text x="30" y="38" text-anchor="middle" font-size="9" fill="#9c8579">Visits</text>
+    </g>
+    <g transform="translate(490, 210)">
+      <rect width="60" height="48" rx="6" fill="#fffaf3" stroke="#ecdcc8"/>
+      <text x="30" y="22" text-anchor="middle" font-size="16" font-weight="700" fill="#2e2320">∞</text>
+      <text x="30" y="38" text-anchor="middle" font-size="9" fill="#9c8579">Vibes</text>
+    </g>
+
+    <!-- Search bar -->
+    <rect x="160" y="280" width="480" height="32" rx="16" fill="#fffaf3" stroke="#ecdcc8"/>
+    <text x="180" y="300" font-size="11" fill="#9c8579">Search by name, tag, or bio…</text>
+
+    <!-- Card grid -->
+    <g transform="translate(40, 330)">
+      <!-- Card 1 -->
+      <rect x="0" y="0" width="160" height="140" rx="14" fill="#fffaf3" stroke="#ecdcc8"/>
+      <circle cx="22" cy="24" r="14" fill="#ffb8d9"/>
+      <text x="44" y="22" font-size="11" font-weight="600" fill="#2e2320">talen</text>
+      <text x="44" y="34" font-size="9" fill="#6b564e">@talenmud</text>
+      <text x="14" y="58" font-size="9" fill="#2e2320">Founder · Engineers</text>
+      <rect x="14" y="68" width="56" height="14" rx="7" fill="#fbe4ee"/>
+      <text x="42" y="78" text-anchor="middle" font-size="8" fill="#2e2320">Python</text>
+      <rect x="74" y="68" width="48" height="14" rx="7" fill="#d9c2ff"/>
+      <text x="98" y="78" text-anchor="middle" font-size="8" fill="#2e2320">C++</text>
+      <rect x="14" y="88" width="40" height="14" rx="7" fill="#b8f2d9"/>
+      <text x="34" y="98" text-anchor="middle" font-size="8" fill="#2e2320">ML</text>
+      <text x="14" y="124" font-size="9" fill="#6b564e">Loves probabilistic... →</text>
+    </g>
+    <g transform="translate(220, 330)">
+      <rect x="0" y="0" width="160" height="140" rx="14" fill="#fffaf3" stroke="#ecdcc8"/>
+      <circle cx="22" cy="24" r="14" fill="#a56dff"/>
+      <text x="44" y="22" font-size="11" font-weight="600" fill="#2e2320">ana</text>
+      <text x="44" y="34" font-size="9" fill="#6b564e">@anab</text>
+      <text x="14" y="58" font-size="9" fill="#2e2320">Student · Web</text>
+      <rect x="14" y="68" width="44" height="14" rx="7" fill="#ffcfa8"/>
+      <text x="36" y="78" text-anchor="middle" font-size="8" fill="#2e2320">React</text>
+      <rect x="62" y="68" width="56" height="14" rx="7" fill="#fbe4ee"/>
+      <text x="90" y="78" text-anchor="middle" font-size="8" fill="#2e2320">Node.js</text>
+      <text x="14" y="124" font-size="9" fill="#6b564e">Building a hacker... →</text>
+    </g>
+    <g transform="translate(400, 330)">
+      <rect x="0" y="0" width="160" height="140" rx="14" fill="#fffaf3" stroke="#ecdcc8"/>
+      <circle cx="22" cy="24" r="14" fill="#3ef2a1"/>
+      <text x="44" y="22" font-size="11" font-weight="600" fill="#2e2320">rohit</text>
+      <text x="44" y="34" font-size="9" fill="#6b564e">@rohit</text>
+      <text x="14" y="58" font-size="9" fill="#2e2320">Backend · Infra</text>
+      <rect x="14" y="68" width="40" height="14" rx="7" fill="#fbe4ee"/>
+      <text x="34" y="78" text-anchor="middle" font-size="8" fill="#2e2320">Go</text>
+      <rect x="58" y="68" width="48" height="14" rx="7" fill="#d9c2ff"/>
+      <text x="82" y="78" text-anchor="middle" font-size="8" fill="#2e2320">Rust</text>
+      <text x="14" y="124" font-size="9" fill="#6b564e">Distributed systems... →</text>
+    </g>
+    <g transform="translate(580, 330)">
+      <rect x="0" y="0" width="160" height="140" rx="14" fill="#fffaf3" stroke="#ecdcc8"/>
+      <circle cx="22" cy="24" r="14" fill="#ffd23f"/>
+      <text x="44" y="22" font-size="11" font-weight="600" fill="#2e2320">maya</text>
+      <text x="44" y="34" font-size="9" fill="#6b564e">@maya</text>
+      <text x="14" y="58" font-size="9" fill="#2e2320">Builder · Hardware</text>
+      <rect x="14" y="68" width="56" height="14" rx="7" fill="#b8f2d9"/>
+      <text x="42" y="78" text-anchor="middle" font-size="8" fill="#2e2320">Robotics</text>
+      <rect x="74" y="68" width="44" height="14" rx="7" fill="#ffcfa8"/>
+      <text x="96" y="78" text-anchor="middle" font-size="8" fill="#2e2320">PCB</text>
+      <text x="14" y="124" font-size="9" fill="#6b564e">Designing a balance... →</text>
+    </g>
+  </g>
+</svg>

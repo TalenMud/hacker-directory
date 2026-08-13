@@ -7,6 +7,12 @@ pull request. No sign-up form, no database, no admin panel. You fork the
 repo, add a folder with your name on it, and your card shows up on the
 grid.
 
+<p align="center">
+  <img src="assets/readme-grid-light.svg" alt="Hacker directory homepage with a pastel grid of contributor cards" width="800">
+</p>
+
+⭐ **If this is the kind of project you'd like to see more of, drop a star — it helps other first-timers find it.**
+
 Each contributor gets:
 
 - **A card** on the main directory grid — name, role, tags, bio, a link
@@ -28,6 +34,41 @@ you can hack on."
 </div>
 
 <br />
+
+## What it looks like
+
+Responsive grid, dark mode that follows your system preference (with a
+manual override), and tag filters that update the URL so you can share a
+filtered view.
+
+<p align="center">
+  <img src="assets/readme-grid-light.svg" alt="Light mode grid view" width="49%">
+  &nbsp;
+  <img src="assets/readme-grid-dark.svg" alt="Dark mode grid view" width="49%">
+</p>
+
+### Search and tag filters
+
+Search by name, tag, or bio. Click any tag pill to narrow the grid.
+
+<p align="center">
+  <img src="assets/readme-tag-filters.svg" alt="Tag filter active with three matching contributors" width="800">
+</p>
+
+## Getting started
+
+Adding your card is one fork, one folder, one JSON file, one pull
+request. The full walkthrough lives in [CONTRIBUTING.md](CONTRIBUTING.md)
+— the tape below shows the happy path in ~30 seconds:
+
+<p align="center">
+  <img src="assets/contribute.gif" alt="Terminal recording of the contributor setup flow: clone, copy the template folder, edit card.json, commit, push" width="800">
+</p>
+
+The tape itself is scripted at
+[`.github/tapes/contribute.tape`](.github/tapes/contribute.tape) — edit
+it and re-run `vhs .github/tapes/contribute.tape` if the steps ever
+change.
 
 ## How it works
 
