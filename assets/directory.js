@@ -228,11 +228,6 @@
     buildTagFilters(people, filterState, rerender);
 
     const search = document.getElementById("search");
-    search.addEventListener("input", () => {
-      filterState.query = search.value;
-      filterState.visibleCount = PAGE_SIZE; // #150: reset pagination on new search
-      rerender();
-    });
     // Debounce the search input so filtering only runs after the user pauses typing.
     const debouncedSearch = debounce((value) => {
       filterState.query = value;
