@@ -402,6 +402,60 @@ a {
   color: #3a1c2b;
 }
 
+/* ---------- Recently active strip ---------- */
+.recent-strip {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+}
+
+.recent-strip-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.recent-strip-list {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.recent-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.8rem 0.35rem 0.35rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.recent-chip:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.recent-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--pill-bg);
+  flex-shrink: 0;
+}
+
 /* ---------- Directory grid ---------- */
 .grid {
   display: grid;

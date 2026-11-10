@@ -1,7 +1,10 @@
 name: Sync contributors manifest
 
-# Keeps contributors/manifest.json in step with the folders on main, so a
-# typo'd or forgotten entry doesn't quietly drop someone from the homepage.
+# Keeps contributors/manifest.json and contributors/recent.json in step
+# with the folders on main, so a typo'd or forgotten entry doesn't quietly
+# drop someone from the homepage, and a contributor's "recent" badge
+# decays past 14 days without a separate cron build.
+#
 # The push below uses GITHUB_TOKEN, and pushes made with that token don't
 # start new workflow runs, so this doesn't retrigger itself.
 
@@ -10,6 +13,11 @@ on:
     branches: [main]
     paths:
       - "contributors/**"
+  # recent.json needs a periodic refresh so a "recent" badge can fall off
+  # once no contributor folder changes for 14 days. The manifest is
+  # idempotent, so this same trigger can run it too.
+  schedule:
+    - cron: "17 4 * * *"
   # So a maintainer can run it on demand — handy the first time, since
   # merging this workflow doesn't touch contributors/ and so won't trigger it.
   workflow_dispatch:
@@ -29,21 +37,28 @@ jobs:
     steps:
       # `ref: main` rather than the commit that triggered the run: a queued run
       # needs the branch as it is now, not as it was when it was queued.
+      # fetch-depth: 0 for full history — build-recent.js reads commit dates
+      # per contributor folder, which a shallow checkout can't answer.
       - uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0
 
       - name: Rebuild manifest.json
         run: node .github/scripts/build-manifest.js
 
+      - name: Rebuild recent.json
+        run: node .github/scripts/build-recent.js
+
       - name: Commit if anything changed
         run: |
-          if git diff --quiet -- contributors/manifest.json; then
-            echo "Manifest already matches the contributor folders."
+          if git diff --quiet -- contributors/manifest.json contributors/recent.json; then
+            echo "Manifest and recent activity already match the contributor folders."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: sync contributors manifest" -- contributors/manifest.json
+          git add contributors/manifest.json contributors/recent.json
+          git commit -m "chore: sync contributors manifest and recent activity"
           git push
