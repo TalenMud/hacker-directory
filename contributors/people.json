@@ -1666,5 +1666,37 @@
       "React",
       "Data Science"
     ]
+  },
+  {
+    "username": "shreyas-singh-28",
+    "name": "Shreyas Singh",
+    "role": "Noob Open Source Contributor",
+    "university": "Indian Institute of Information Technology, Raichur",
+    "github": "Shreyas-Singh-28",
+    "bio": "I like playing Basketball.",
+    "tags": [
+      "Python",
+      "Machine Learning",
+      "LLM"
+    ],
+    "links": {
+      "website": "https://github.com/Shreyas-Singh-28/"
+    }
+  },
+  {
+    "username": "Shreyas-Singh-28",
+    "name": "Shreyas Singh",
+    "role": "Noob Open Source Contributor",
+    "university": "Indian Institute of Information Technology, Raichur",
+    "github": "Shreyas-Singh-28",
+    "bio": "I like playing Basketball.",
+    "tags": [
+      "Python",
+      "Machine Learning",
+      "LLM"
+    ],
+    "links": {
+      "website": "https://github.com/Shreyas-Singh-28/"
+    }
   }
 ]
