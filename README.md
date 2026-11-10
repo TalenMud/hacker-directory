@@ -13,7 +13,7 @@ Each contributor gets:
   to their page.
 - **A personal page** (`contributors/your-username/index.html`) that's
   entirely theirs to customise — bio, projects, links, or full-on
-  interactive builds like the [live MCMC sampler visualisation](contributors/talen/index.html)
+  interactive builds like the [live MCMC sampler visualisation](contributors/talenmud/index.html)
   on Talen's page.
 
 It's less "university project directory" and more "developer social feed
