@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>a small corner — Ishita</title>
+<meta name="description" content="A warm little corner of the internet.">
+<style>
+:root{
+  --bg:#f7eee6;--paper:#fffaf5;--ink:#443b3d;--muted:#817478;
+  --pink:#e9a0b8;--peach:#efbd9d;--sage:#b8c6b2;--line:#eadbd1;
+  --shadow:0 18px 60px rgba(83,62,56,.10)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{
+ margin:0;color:var(--ink);min-height:100vh;
+ background:
+ radial-gradient(circle at 7% 10%,rgba(233,160,184,.14),transparent 24%),
+ radial-gradient(circle at 93% 18%,rgba(239,189,157,.15),transparent 20%),
+ linear-gradient(135deg,#f7f0ea,#f1e6dc);
+ font-family:Georgia,"Times New Roman",serif
+}
+button{font:inherit}.page{width:min(1040px,calc(100% - 48px));margin:0 auto;padding-bottom:36px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0 16px;
+ font: .84rem system-ui,sans-serif;color:var(--muted)}
+.brand{font-weight:700;color:var(--ink)}.brand span{color:var(--pink)}
+.quiet{font-style:italic}
+.hero{text-align:center;padding:52px 0 78px}
+.eyebrow{font: .76rem system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(4.1rem,8vw,7.4rem);line-height:.83;letter-spacing:-.07em;font-weight:500;margin:18px 0 24px}
+h1 em{font-weight:400;color:#d487a2}
+.hero p{max-width:660px;margin:auto;color:var(--muted);font-size:1.09rem;line-height:1.9}
+.scroll{display:inline-block;margin-top:24px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:4px}
+
+.room{position:relative;background:rgba(255,250,245,.72);border:1px solid rgba(234,219,209,.95);
+ border-radius:32px;box-shadow:var(--shadow);padding:30px 30px 26px;overflow:hidden}
+.room:before{content:"";position:absolute;inset:0;
+ background-image:radial-gradient(rgba(100,75,65,.055) .7px,transparent .7px);
+ background-size:15px 15px;pointer-events:none}
+.room-top{position:relative;display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:18px}
+.room-title{font-size:1.42rem;margin:0}.room-note{font: .78rem system-ui,sans-serif;color:var(--muted)}
+.desk{position:relative;display:grid;grid-template-columns:minmax(110px,.95fr) minmax(260px,1.35fr) minmax(110px,.95fr);gap:20px;align-items:center;min-height:380px}
+.object{appearance:none;border:0;background:none;color:inherit;cursor:pointer;min-height:120px;padding:18px 16px;
+ border-radius:22px;transition:transform .25s ease,background .25s ease,box-shadow .25s ease;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.object:hover,.object:focus-visible{transform:translateY(-5px);background:rgba(255,255,255,.62);
+ box-shadow:0 12px 24px rgba(83,62,56,.04);outline:1px solid rgba(233,160,184,.2);outline-offset:2px}
+.object-icon{font-size:2.8rem;display:block}.object-label{font: .77rem system-ui,sans-serif;color:var(--muted)}
+.window{height:260px;border:9px solid #e2d4ca;border-bottom-width:13px;
+ background:linear-gradient(#e6e0ea 0 57%,#d2c1b4 57% 100%);border-radius:22px;position:relative;overflow:hidden;max-width:100%}
+.window:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:4px;background:#e2d4ca;transform:translateX(-50%)}
+.moon{position:absolute;width:58px;height:58px;border-radius:50%;background:#fff1ca;top:34px;right:30px;
+ box-shadow:0 0 35px rgba(255,241,202,.7)}
+.hill{position:absolute;bottom:-35px;left:-20px;width:120%;height:108px;border-radius:50% 50% 0 0;background:#a9b59e}
+.plant{position:absolute;bottom:5px;left:40px;font-size:3rem;z-index:2}
+.message{position:relative;margin:18px auto 0;max-width:660px;min-height:90px;background:rgba(255,255,255,.5);
+ border:1px solid var(--line);border-radius:20px;padding:18px 20px;text-align:center;opacity:0;
+ transform:translateY(5px);transition:.25s}
+.message.show{opacity:1;transform:none}.message strong{display:block;margin-bottom:7px}
+.message span{color:var(--muted);line-height:1.6}
+
+.section{padding:78px 0 8px}.section-head{max-width:610px}
+.section h2{font-size:2.25rem;letter-spacing:-.045em;font-weight:500;margin:0 0 12px}
+.section-intro{color:var(--muted);line-height:1.8;margin:0}
+.thoughts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+.thought{padding:30px 28px;background:rgba(255,255,255,.42);border-top:1px solid var(--line)}
+.mark{font: .76rem system-ui,sans-serif;color:#d48ba4;letter-spacing:.08em}
+.thought p{line-height:1.8;margin:12px 0 0;color:#62585b}
+
+.quote{text-align:center;padding:82px 20px 74px;font-size:clamp(1.6rem,4vw,2.55rem);
+ line-height:1.36;color:#5d5356;max-width:980px;margin:0 auto}
+.quote em{color:#c8839e;font-weight:400}
+
+.vibe{background:linear-gradient(135deg,rgba(233,160,184,.22),rgba(239,189,157,.26));
+ border-radius:30px;padding:34px 24px;margin:18px auto 0;max-width:780px;text-align:center;box-shadow:0 8px 24px rgba(122,93,82,.04)}
+.vibe h3{margin:0 0 8px;font-size:1.35rem}.vibe p{color:var(--muted);line-height:1.7}
+.vibe button{border:1px solid rgba(255,255,255,.9);background:rgba(255,255,255,.72);
+ border-radius:999px;padding:11px 17px;cursor:pointer;color:var(--ink);margin:3px}
+#vibeResult{min-height:28px;margin:15px 0;font-size:1.04rem;color:#655b5f}
+footer{text-align:center;padding:62px 0 24px;color:#9a8d91;font: .78rem system-ui,sans-serif}
+
+
+.connect{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  padding:34px 0 10px;
+}
+.connect-card{
+  position:relative;
+  min-height:148px;
+  padding:22px 18px 18px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:rgba(255,255,255,.45);
+  color:var(--ink);
+  text-decoration:none;
+  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
+}
+.connect-card:hover{
+  transform:translateY(-5px) rotate(-1.2deg);
+  background:rgba(255,255,255,.78);
+  box-shadow:0 12px 28px rgba(83,62,56,.08);
+}
+.connect-card:nth-child(2):hover{transform:translateY(-5px) rotate(1.2deg)}
+.connect-card:nth-child(3):hover{transform:translateY(-5px) rotate(-.8deg)}
+.connect-card:focus-visible{
+  outline:2px solid rgba(233,160,184,.55);
+  outline-offset:3px;
+}
+.connect-icon{
+  width:36px;height:36px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:rgba(233,160,184,.16);
+  color:#b97590;
+  font:700 .82rem system-ui,sans-serif;
+}
+.connect-name{margin-top:18px;font-size:1.13rem}
+.connect-note{color:var(--muted);font:.72rem system-ui,sans-serif;margin-top:4px}
+.connect-arrow{position:absolute;top:22px;right:22px;color:#a9979d;font-size:1rem}
+
+.mark{
+  font: .72rem system-ui,sans-serif;
+  color:#d48ba4;
+  letter-spacing:.08em;
+}
+
+@media(max-width:700px){
+  .page{width:min(100% - 20px, 760px)}
+  .hero{padding-top:36px;padding-bottom:52px}
+  .connect{grid-template-columns:1fr}
+  .desk{grid-template-columns:1fr 1fr}.window{grid-column:1/-1;grid-row:1;height:220px}
+  .object:nth-child(2){grid-column:1}.object:nth-child(3){grid-column:2}.thoughts{grid-template-columns:1fr}
+  .room{padding:22px}.room-top{align-items:flex-start;flex-direction:column;margin-bottom:10px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.object,.message{transition:none}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<nav>
+  <div class="brand"><span>✦</span> a small corner</div>
+  <div class="quiet">you can stay for a while.</div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">a gentle introduction</div>
+  <h1>hello, I'm<br><em>Ishita.</em></h1>
+  <p>
+    A computer science student, curious builder, and someone who tends to
+    look at both the small details and the bigger picture. Ideas are usually
+    followed by experiments, practical questions, and the occasional detour.
+    This little corner is simply a softer way of saying hello.
+  </p>
+  <a class="scroll" href="#room">look around ↓</a>
+</header>
+
+<main>
+
+  <section class="connect" aria-label="Ways to connect">
+  <a class="connect-card" href="https://ishita-nanda.vercel.app/" target="_blank" rel="noopener">
+    <span class="connect-icon">✦</span>
+    <span class="connect-name">website</span>
+    <span class="connect-note">a little more of the story</span>
+    <span class="connect-arrow">↗</span>
+  </a>
+
+  <a class="connect-card" href="https://github.com/Iishita1" target="_blank" rel="noopener">
+    <span class="connect-icon">⌘</span>
+    <span class="connect-name">github</span>
+    <span class="connect-note">things being built</span>
+    <span class="connect-arrow">↗</span>
+  </a>
+
+  <a class="connect-card" href="https://www.linkedin.com/in/ishita-nanda-a61941324/" target="_blank" rel="noopener">
+    <span class="connect-icon">in</span>
+    <span class="connect-name">linkedin</span>
+    <span class="connect-note">a hello, professionally</span>
+    <span class="connect-arrow">↗</span>
+  </a>
+</section>
+
+
+<section class="room" id="room" aria-label="A small interactive room">
+  <div class="room-top">
+    <h2 class="room-title">a room with a few things left out</h2>
+    <div class="room-note">nothing important is hidden — just a few thoughts worth noticing.</div>
+  </div>
+
+  <div class="desk">
+    <button class="object" data-title="the notebook"
+      data-text="Some thoughts are better left to wander for a while. Ideas often find their shape when they are given a little space.">
+      <span class="object-icon">📓</span><span class="object-label">a notebook</span>
+    </button>
+
+    <div class="window" aria-label="A quiet window scene">
+      <div class="moon"></div><div class="hill"></div><div class="plant">🪴</div>
+    </div>
+
+    <button class="object" data-title="the comfy chair"
+      data-text="Quiet spaces can make conversation feel easier. The nicest conversations are often the ones where nobody has to rush to fill the silence.">
+      <span class="object-icon">🛋️</span><span class="object-label">the comfy chair</span>
+    </button>
+
+    <button class="object" data-title="the little plant"
+      data-text="Plans can be useful without becoming cages. A little flexibility leaves room for better ideas, unexpected turns, and other people.">
+      <span class="object-icon">🌱</span><span class="object-label">the little plant</span>
+    </button>
+  </div>
+
+  <div class="message" id="message" aria-live="polite">
+    <strong></strong><span></span>
+  </div>
+</section>
+
+<section class="section">
+
+  <div class="thoughts">
+    <article class="thought">
+      <div class="mark">01 · HOW I THINK</div>
+      <p>
+        I usually don't stop at the obvious answer. Ideas are looked at from
+        different angles, details are checked, and connections between things
+        tend to become part of the picture.
+      </p>
+    </article>
+
+    <article class="thought">
+      <div class="mark">02 · WHAT I LIKE</div>
+      <p>
+        Practical ideas are especially appealing to me. Something feels more
+        satisfying when it can move beyond being interesting and actually be
+        useful to someone.
+      </p>
+    </article>
+
+    <article class="thought">
+      <div class="mark">03 · WHAT MATTERS</div>
+      <p>
+        Logic matters, but so do kindness, fairness, and justice. Decisions
+        aren't only about what makes sense on paper; the people affected by
+        them matter too.
+      </p>
+    </article>
+
+    <article class="thought">
+      <div class="mark">04 · HOW I WORK</div>
+      <p>
+        Plans are made, deadlines are respected, and progress is checked along
+        the way. At the same time, I like keeping enough flexibility for a
+        better idea or an unexpected opportunity.
+      </p>
+    </article>
+  </div>
+</section>
+
+<div class="quote">
+  “Not every path needs to be known in advance.<br>
+  Sometimes <em>a little room for wonder</em> is enough.”
+</div>
+
+<section class="vibe">
+  <h3>one last little question</h3>
+  <p>What kind of little corner would feel good to find right now?</p>
+  <div id="vibeResult" aria-live="polite">choose whichever feels right ↓</div>
+  <button type="button" data-vibe="quiet">🌿 somewhere quiet</button>
+  <button type="button" data-vibe="curious">🔍 somewhere curious</button>
+  <button type="button" data-vibe="warm">☕ somewhere warm</button>
+</section>
+</main>
+
+<footer>
+  take whatever thought was useful and leave the rest here.
+  <br>there's always room for another visitor.
+</footer>
+</div>
+
+<script>
+const message=document.getElementById("message");
+const title=message.querySelector("strong");
+const text=message.querySelector("span");
+
+document.querySelectorAll(".object").forEach(item=>{
+  item.addEventListener("click",()=>{
+    title.textContent=item.dataset.title;
+    text.textContent=item.dataset.text;
+    message.classList.remove("show");
+    requestAnimationFrame(()=>message.classList.add("show"));
+  });
+});
+
+const vibeResult=document.getElementById("vibeResult");
+const vibes={
+  quiet:"Then a quiet five minutes is more than enough. Nothing needs to be accomplished. 🌿",
+  curious:"Then keep looking. Curiosity has a habit of finding doors where walls were expected. ✦",
+  warm:"Then something warm, something familiar, and a little time might be just right. ☕"
+};
+
+document.querySelectorAll("[data-vibe]").forEach(button=>{
+  button.addEventListener("click",()=>{
+    vibeResult.textContent=vibes[button.dataset.vibe];
+  });
+});
+</script>
+</body>
+</html>
