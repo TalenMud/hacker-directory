@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>igdaniel — Full-Stack Developer</title>
+<link rel="icon" type="image/x-icon" href="https://static.vecteezy.com/system/resources/previews/059/323/073/non_2x/a-delicate-cream-colored-flower-with-multiple-open-petals-free-png.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">igdaniel-1</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="pages/blog.html">Blog</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="pages/resume.html">Resume</a></li>
+  </ul>
+</nav>
+
+
+
+<header class="video-header" id="top">
+  <!-- <div class="video-header" id="top"> -->
+  <div class="video-header-inner">
+    <h1 class="video-header-title">India Grace Daniel</h1>
+    <p class="video-header-sub">Software Engineer</p>
+    
+    <div class="video-frame">
+      <div class="video-frame" data-src="https://drive.google.com/file/d/1rAt8noJlOjkZhd_CKiujaat4O3Tz4XtV/preview" data-title="ASL Translation video">
+        <button type="button" class="video-poster" aria-label="Play ASL Translation video"
+                style="background-image:url('images/ASL_translate_i_widescreen.png')">
+          <span class="play-icon">▶</span>
+        </button>
+      </div>
+      <!-- <iframe
+        src="https://drive.google.com/file/d/1rAt8noJlOjkZhd_CKiujaat4O3Tz4XtV/preview"
+        title="ASL Translation video"
+        allow="fullscreen"
+        allowfullscreen></iframe> -->
+    </div>
+
+    <p class="video-header-fallback">
+      Video not loading?
+      <a href="https://drive.google.com/file/d/1rAt8noJlOjkZhd_CKiujaat4O3Tz4XtV/view?usp=drive_link" target="_blank" rel="noopener">Watch it on Google Drive</a>
+    </p>
+    <div class="video-description">
+      <p>
+        First Video Demonstration for the <a href="https://github.com/igdaniel-1/ASL_Translate_Swift"><i>Machine Learning Sign Language Translator</i></a>. 
+      </p>
+      <p>
+        I designed, built, and shipped an on-device ML translation app to the App Store that delivers real-time sign language translation with no WiFi or server dependency.
+      </p>
+      <p>
+        For more information on the Sign Language Translator I built, contact me at <a href="mailto:igracedaniel@gmail.com">igracedaniel@gmail.com</a>, 
+        read my abstract on <a href="https://github.com/igdaniel-1/ASL_Translate_Swift">GitHub</a>, or watch the full video demo <a href="https://drive.google.com/file/d/10kOkRgcT26_jOkyaPyjwuHE8A-DUPnL7/view?usp=sharing">here</a>.
+      </p>
+    </div>
+  </div>
+<!-- </div> -->
+</header>
+<div class="divider"></div>
+
+<!-- HERO
+<section class="hero" style="max-width:100%; padding-top:8rem;">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Full-Stack Developer</div>
+    <h1 class="hero-name">
+      Building things
+      <span class="highlight">that work.</span>
+    </h1>
+    <p class="hero-tagline">
+      I design and build distributed systems, networked applications, and clean interfaces — end to end.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary">See my work ↓</a>
+      <a href="https://github.com/igdaniel-1" target="_blank" rel="noopener" class="btn btn-outline">GitHub ↗</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+<div class="divider"></div> -->
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About me</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2 class="section-title">Hi I'm India!</h2>
+        <p>I'm an NYU CS grad (Go Violets!!! &#9917; &#9917; &#9917;) working as a Full-Stack Software Engineer in New York.</p>
+        <p>I've designed full-stack payment integrations for multiple start-ups
+          as well as vetting critical automation for international enterprises.</p>
+          <p>My creative thinking and decision-making ability make me an asset to fast-paced teams of developers who value quality as highly as productivity. </p>
+      <a href="https://github.com/igdaniel-1" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:0.5rem;">View GitHub profile ↗</a>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-number" id="repo-count">—</div>
+        <div class="stat-label">Public repos</div>
+      </div>
+      <!-- <div class="stat-card">
+        <div class="stat-number" id="follower-count">—</div>
+        <div class="stat-label">Followers</div>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<!-- <div class="divider"></div> -->
+
+
+
+
+
+
+<div class="divider"></div>
+
+
+<section class="skills-section" id="skills">
+  <h2 class="skills-title">My Stack</h2>
+
+  <div class="skills-grid">
+    <div class="skills-group">
+      <h3>Languages</h3>
+      <ul>
+        <li><img src="https://cdn.simpleicons.org/python" alt="" loading="lazy" onerror="this.style.display='none'">Python</li>
+        <li><img src="https://cdn.simpleicons.org/javascript" alt="" loading="lazy" onerror="this.style.display='none'">JavaScript</li>
+        <li><img src="https://cdn.simpleicons.org/typescript" alt="" loading="lazy" onerror="this.style.display='none'">TypeScript</li>
+        <li><img src="https://cdn.simpleicons.org/react" alt="" loading="lazy" onerror="this.style.display='none'">React</li>
+        <li><img src="https://cdn.simpleicons.org/swift" alt="" loading="lazy" onerror="this.style.display='none'">Swift</li>
+        <li><img src="https://cdn.simpleicons.org/c" alt="" loading="lazy" onerror="this.style.display='none'">C</li>
+        <li><img src="https://cdn.simpleicons.org/cplusplus" alt="" loading="lazy" onerror="this.style.display='none'">C++</li>
+        <li><img src="https://cdn.simpleicons.org/gnubash" alt="" loading="lazy" onerror="this.style.display='none'">Bash</li>
+        <li><img src="https://cdn.simpleicons.org/go" alt="" loading="lazy" onerror="this.style.display='none'">Go</li>
+      </ul>
+    </div>
+
+    <div class="skills-group">
+      <h3>Integration &amp; Data</h3>
+      <ul>
+        <li>
+          <svg class="sk-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h12m0 0-3-3m3 3-3 3M17 17H5m0 0 3-3m-3 3 3 3"/></svg>RESTful APIs
+        </li>
+        <li>
+          <svg class="sk-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>API Development
+        </li>
+        <li><img class="sk-json" src="https://cdn.simpleicons.org/json/a1a1aa" alt="" loading="lazy" onerror="this.style.display='none'">JSON</li>
+        <li>
+          <svg class="sk-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 6h4a3 3 0 0 1 3 3v0a3 3 0 0 0 3 3h0M7 18h4a3 3 0 0 0 3-3v0a3 3 0 0 1 3-3"/></svg>Data Integration
+        </li>
+        <li><img src="https://cdn.simpleicons.org/googlecloud" alt="" loading="lazy" onerror="this.style.display='none'">Google Cloud Storage API</li>
+        <li><img src="https://cdn.simpleicons.org/stripe" alt="" loading="lazy" onerror="this.style.display='none'">Stripe API</li>
+        <li><img src="https://cdn.simpleicons.org/redux" alt="" loading="lazy" onerror="this.style.display='none'">Redux</li>
+      </ul>
+    </div>
+
+    <div class="skills-group">
+      <h3>Databases &amp; DevOps</h3>
+      <ul>
+        <li><img src="https://cdn.simpleicons.org/postgresql" alt="" loading="lazy" onerror="this.style.display='none'">PostgreSQL</li>
+        <li>
+          <svg class="sk-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>SQL
+        </li>
+        <li><img src="https://cdn.simpleicons.org/mongodb" alt="" loading="lazy" onerror="this.style.display='none'">MongoDB</li>
+        <li><img src="https://cdn.simpleicons.org/docker" alt="" loading="lazy" onerror="this.style.display='none'">Docker</li>
+        <li><img src="https://cdn.simpleicons.org/githubactions" alt="" loading="lazy" onerror="this.style.display='none'">GitHub CI/CD</li>
+        <li><img src="https://cdn.simpleicons.org/redis" alt="" loading="lazy" onerror="this.style.display='none'">Redis</li>
+      </ul>
+    </div>
+
+    
+  </div>
+  <div class="skills-group">
+      
+      <div class="poll" id="poll">
+        <h3>Fun fact</h3>
+        <p>I'm trilingual and learning my fourth language!</p>
+        <p>I currently speak English, French, and Mandarin Chinese.</p>
+
+        <h3 id="poll-question">Guess my 4th language</h3>
+
+        <div class="poll-options" id="poll-options">
+          <button type="button" class="poll-option">Japanese</button>
+          <button type="button" class="poll-option" data-correct>Italian</button>
+          <button type="button" class="poll-option">Spanish</button>
+        </div>
+
+        <div class="poll-result" id="poll-result" hidden role="status">Correct! Come Stai?</div>
+      </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+<!-- CONTACT -->
+<section id="contact">
+<div class="contact-inner">
+  <div class="section-label" style="justify-content:center; margin-bottom:1rem;">Get in touch</div>
+  <h2 id="workTogether">Let's work together</h2>
+  <p>Open to new opportunities and interesting problems.</p>
+  <div class="contact-links">
+    <a href="mailto:igracedaniel@gmail.com" id="emailButton" class="btn btn-outline">email me!</a>
+    <a href="https://github.com/igdaniel-1" target="_blank" rel="noopener" class="btn btn-primary">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/india-grace-daniel/" id="linkedInButton" class="btn btn-outline">LinkedIn ↗</a>
+  </div>
+</div>
+
+
+</section>
+<div class="divider"></div>
+
+
+
+<div class="divider"></div>
+<div class="video-header">
+  <div class="video-header-inner">
+    <!-- <p class="video-header-sub">Software Engineer, Full-Stack, Robotics, GNC, iOS</p> -->
+    
+    <div class="video-frame">
+      <iframe
+        src="https://drive.google.com/file/d/1ZAI_3dua75d0Xwmfe3DD2QVJDr9gwaKR/preview"
+        title="Robotics Navigation video"
+        allow="fullscreen"
+        allowfullscreen
+        loading="lazy"></iframe>
+    </div>
+
+    <p class="video-header-fallback">
+      Video not loading?
+      <a href="https://drive.google.com/file/d/1ZAI_3dua75d0Xwmfe3DD2QVJDr9gwaKR/view?usp=drive_link" target="_blank" rel="noopener">Watch it on Google Drive</a>
+    </p>
+    <div class="video-description">
+      <p>
+        First Video Demonstration for the <a href="https://www.dregsbane.com/who"><i>DregsBane Systems</i></a> Trash-Collecting Robot. 
+      </p>
+      <p>
+        I built this 3D simulation environment using ThreeJS as the initial Software-In-The-Loop test 
+        to calibrate the movement trajectory of the robot.
+      </p>
+      <p>
+        For more information on the robotics GNC software I wrote, contact me at <a href="mailto:igracedaniel@gmail.com">igracedaniel@gmail.com</a>
+        and/or read our pitch on <a href="https://github.com/DregsBane-Systems">GitHub</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">What I've built</div>
+  <div class="projects-header">
+    <h2 class="section-title">Projects</h2>
+    <a class="view-all" href="https://github.com/igdaniel-1?tab=repositories" target="_blank" rel="noopener">All repos →</a>
+  </div>
+  <div class="projects-grid" id="projects-grid">
+    <div class="loading-msg">Fetching repos from GitHub...</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="contact-inner">
+  <!-- <div class="section-label" style="justify-content:center; margin-bottom:1rem;">Get in touch</div> -->
+  <h2 id="workTogether">Found a typo ?</h2>
+  <p>or just want to keep this convo going ...</p>
+  <!-- <p>let's keep this convo going </p> -->
+  <div class="contact-links">
+    <a href="mailto:igracedaniel@gmail.com" id="emailButton" class="btn btn-outline">email me!</a>
+    <a href="https://github.com/igdaniel-1" target="_blank" rel="noopener" class="btn btn-primary">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/india-grace-daniel/" id="linkedInButton" class="btn btn-outline">LinkedIn ↗</a>
+  </div>
+</div>
+
+<!-- <div class="divider"></div> -->
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 igdaniel-1</span>
+  <a href="https://github.com/igdaniel-1" target="_blank" rel="noopener">Built with GitHub API</a>
+</footer>
+
+<script>
+const GITHUB_USER = 'igdaniel-1';
+
+const LANG_COLORS = {
+  Python: '#3572A5',
+  JavaScript: '#f1e05a',
+  TypeScript: '#3178c6',
+  HTML: '#e34c26',
+  CSS: '#563d7c',
+  Go: '#00ADD8',
+  Rust: '#dea584',
+  Java: '#b07219',
+  'C++': '#f34b7d',
+  C: '#555555',
+  Shell: '#89e051',
+};
+
+async function fetchGitHub() {
+  try {
+    const [userRes, reposRes] = await Promise.all([
+      fetch(`https://api.github.com/users/${GITHUB_USER}`),
+      fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=12`)
+    ]);
+    const user = await userRes.json();
+    const repos = await reposRes.json();
+
+    document.getElementById('repo-count').textContent = user.public_repos ?? '—';
+    // document.getElementById('follower-count').textContent = user.followers ?? '—';
+
+    renderProjects(repos);
+  } catch (e) {
+    document.getElementById('projects-grid').innerHTML =
+      '<div class="loading-msg">Could not load repos. <a href="https://github.com/igdaniel-1?tab=repositories" target="_blank" style="color:var(--accent)">View on GitHub ↗</a></div>';
+  }
+}
+
+function renderProjects(repos) {
+  const grid = document.getElementById('projects-grid');
+  if (!repos || !repos.length) {
+    grid.innerHTML = '<div class="loading-msg">No public repos found.</div>';
+    return;
+  }
+
+  const projectIcons = ['⚡', '🔧', '🌐', '📡', '🔬', '🛠', '📦', '&#127775;'];
+
+  grid.innerHTML = repos.filter(r => !r.fork).map((repo, i) => {
+    const lang = repo.language || '';
+    const color = LANG_COLORS[lang] || '#888';
+    const icon = projectIcons[i % projectIcons.length];
+    const desc = repo.description || 'No description provided.';
+    const stars = repo.stargazers_count;
+    const url = repo.html_url;
+
+    return `
+      <a class="project-card" href="${url}" target="_blank" rel="noopener">
+        <div class="project-card-top">
+          <span class="project-icon">${icon}</span>
+          <span class="project-card-arrow">↗</span>
+        </div>
+        <div class="project-name">${repo.name}</div>
+        <div class="project-desc">${desc}</div>
+        <div class="project-meta">
+          ${lang ? `<span class="project-lang"><span class="lang-dot" style="background:${color}"></span>${lang}</span>` : ''}
+        </div>
+      </a>
+    `;
+  }).join('');
+}
+
+fetchGitHub();
+</script>
+<script>
+  (function () {
+    var options = document.getElementById("poll-options");
+    var result = document.getElementById("poll-result");
+
+    options.addEventListener("click", function (e) {
+      var btn = e.target.closest(".poll-option");
+      if (!btn || btn.classList.contains("wrong")) return;
+
+      if (btn.hasAttribute("data-correct")) {
+        // Swap the options container for the "Correct" text box
+        options.hidden = true;
+        options.style.display = "none";
+        result.hidden = false;
+      } else {
+        btn.classList.add("wrong"); // wrong pick: dim it, let them try again
+      }
+    });
+  })();
+
+  document.querySelectorAll('.video-frame[data-src]').forEach(frame => {
+  frame.querySelector('.video-poster').addEventListener('click', () => {
+    const iframe = document.createElement('iframe');
+    iframe.src = frame.dataset.src;
+    iframe.title = frame.dataset.title;
+    iframe.allow = 'fullscreen';
+    iframe.allowFullscreen = true;
+    frame.replaceChildren(iframe);
+  });
+});
+</script>
+</body>
+</html>
