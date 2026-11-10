@@ -98,6 +98,16 @@ jobs:
                   `\`${file}\`: the \`"github"\` field ("${json.github}") doesn't match the folder name ("${folderUsername}").`
                 );
               }
+
+              // location is opt-in and meant to be coarse (city/country) — a
+              // "lat, lng"-shaped value usually means someone pasted exact
+              // coordinates, which is more precise than this field is for.
+              const COORDINATE_PATTERN = /^-?\d{1,3}(\.\d+)?\s*,\s*-?\d{1,3}(\.\d+)?$/;
+              if (typeof json.location === "string" && COORDINATE_PATTERN.test(json.location.trim())) {
+                warnings.push(
+                  `\`${file}\`: \`"location"\` looks like exact coordinates. Please use a city or country instead, e.g. \`"Cardiff, UK"\`.`
+                );
+              }
             }
 
             core.setOutput("errorCount", errors.length.toString());
@@ -171,6 +181,7 @@ jobs:
               scanText(`\`${file}\` ("role")`, json.role);
               scanText(`\`${file}\` ("bio")`, json.bio);
               scanText(`\`${file}\` ("university")`, json.university);
+              scanText(`\`${file}\` ("location")`, json.location);
               if (Array.isArray(json.tags)) {
                 for (const tag of json.tags) scanText(`\`${file}\` ("tags")`, tag);
               }
