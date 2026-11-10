@@ -1,0 +1,11 @@
+{
+  "name": "Your Name",
+  "role": "Your role or what you do",
+  "university": "Your school or company (optional)",
+  "github": "your-github-username",
+  "bio": "A short introduction about what you build, what you're learning, or what you're interested in.",
+  "tags": ["Your Skill", "Another Skill", "Your Interest"],
+  "links": {
+    "website": "https://your-site.example.com"
+  }
+}
