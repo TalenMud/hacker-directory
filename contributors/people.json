@@ -1706,6 +1706,22 @@
     }
   },
   {
+    "username": "Man-codes",
+    "name": "Manjishtha Chakma",
+    "role": "SE Student, Noob Open Source Contributor",
+    "university": "UTM MJIIT",
+    "github": "Man-codes",
+    "bio": "I like play with different kind of technologies and I love to challenge myself",
+    "tags": [
+      "C++",
+      "Java",
+      "Software Engineering"
+    ],
+    "links": {
+      "website": "https://github.com/Man-codes"
+    }
+  },
+  {
     "username": "Shreyas-Singh-28",
     "name": "Shreyas Singh",
     "role": "Noob Open Source Contributor",
